@@ -7524,13 +7524,16 @@ put into place.</p>
 <p>Source of the data: <a href="https://doi.org/10.24432/C5MC89">10.24432/C5MC89</a>
 (<a href="https://archive.ics.uci.edu/dataset/697/predict+students+dropout+and+academic+success">alternate URL</a>).</p>
 <h1 id="Research-questions">Research questions<a class="anchor-link" href="#Research-questions">¶</a></h1><ol>
-<li>What factors can indicate an increased risk of dropout early on?</li>
-<li>What kinds of models (e.g. kNN, logistic regression, SVM, decision trees) can
+<li><p>What kinds of models (e.g. kNN, logistic regression, SVM, decision trees) can
 identify most of the <em>Dropout</em> class with sufficiently low number of false
 positives? What sampling and boosting techniques can improve their
-performance the most (especially with regards to imbalances in the data)?</li>
-<li>Are all dropout outcomes the same? Are there any subclasses that might be
-easier to predict (or prevent) than others?</li>
+performance the most (especially with regards to imbalances in the data)?</p>
+</li>
+<li><p>What factors can indicate an increased risk of dropout early on?</p>
+</li>
+<li><p>Are all dropout outcomes the same? Are there any subclasses that might be
+easier to predict (or prevent) than others?</p>
+</li>
 </ol>
 <h1 id="Summary">Summary<a class="anchor-link" href="#Summary">¶</a></h1><p>TODO</p>
 </div>
@@ -7563,7 +7566,7 @@ easier to predict (or prevent) than others?</li>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [138]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">collections</span> <span class="k">as</span> <span class="nn">cl</span>
@@ -7597,7 +7600,7 @@ easier to predict (or prevent) than others?</li>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [139]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">println</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -7711,7 +7714,7 @@ easier to predict (or prevent) than others?</li>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [140]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># {</span>
@@ -8072,7 +8075,7 @@ easier to predict (or prevent) than others?</li>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [141]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"data/data.csv"</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">";"</span><span class="p">)</span>
@@ -8134,14 +8137,14 @@ np.sum(data.isnull().sum()) = 0
 np.sum(data.isna().sum()) = 0
 
 Renumbering 'Nacionality'
-Renumbering 'Course'
-Renumbering 'Application mode'
 Renumbering 'Previous qualification'
+Renumbering 'Application mode'
 Renumbering "Mother's occupation"
-Renumbering "Father's qualification"
-Renumbering 'Marital status'
-Renumbering "Father's occupation"
 Renumbering "Mother's qualification"
+Renumbering "Father's occupation"
+Renumbering 'Marital status'
+Renumbering 'Course'
+Renumbering "Father's qualification"
 Renumbering 'Target'
 </pre>
 </div>
@@ -8164,7 +8167,7 @@ Renumbering 'Target'
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [143]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [33]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">make_histograms</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">features</span><span class="p">):</span>
@@ -8229,51 +8232,85 @@ Renumbering 'Target'
             <span class="n">header</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"Total"</span><span class="p">)</span>
             <span class="n">add_to_crosstab</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">col</span><span class="p">],</span> <span class="n">unique_vals</span><span class="p">,</span> <span class="n">crosstab</span><span class="p">)</span>
             <span class="n">print_crosstab</span><span class="p">(</span><span class="n">header</span><span class="p">,</span> <span class="n">crosstab</span><span class="p">,</span> <span class="n">features</span><span class="p">,</span> <span class="n">col</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">print_stats</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">target_vals</span><span class="p">,</span> <span class="n">data_grouped</span><span class="p">)</span>
 
         <span class="nb">print</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span>
-    
-    <span class="n">plt_layout</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-    <span class="n">plt_hist</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="n">target</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">target_vals</span><span class="p">))</span>
-    <span class="n">plt_show</span><span class="p">()</span>
-
-    <span class="nb">print</span><span class="p">(</span><span class="n">cl</span><span class="o">.</span><span class="n">Counter</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">target</span><span class="p">]))</span>
-
-
-<span class="k">def</span> <span class="nf">truncate_str</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">max_len</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">text</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">max_len</span> <span class="k">else</span> <span class="p">(</span><span class="n">text</span><span class="p">[:</span><span class="n">max_len</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="s2">"..."</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">add_to_crosstab</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">unique_vals</span><span class="p">,</span> <span class="n">crosstab</span><span class="p">):</span>
     <span class="n">dist</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">cl</span><span class="o">.</span><span class="n">Counter</span><span class="p">(</span><span class="n">values</span><span class="p">))</span>
+    <span class="n">perc_scale</span> <span class="o">=</span> <span class="mf">100.0</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
     
     <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">unique_vals</span><span class="p">:</span>
-        <span class="n">crosstab</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dist</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="n">dist</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">perc</span> <span class="o">=</span> <span class="n">count</span> <span class="o">*</span> <span class="n">perc_scale</span>
+        <span class="n">crosstab</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">count</span><span class="p">,</span> <span class="n">perc</span><span class="p">))</span>
 
 
 <span class="k">def</span> <span class="nf">print_crosstab</span><span class="p">(</span><span class="n">header</span><span class="p">,</span> <span class="n">crosstab</span><span class="p">,</span> <span class="n">features</span><span class="p">,</span> <span class="n">col</span><span class="p">):</span>
     <span class="n">max_len</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span>
         <span class="nb">len</span><span class="p">(</span><span class="n">features</span><span class="p">[</span><span class="n">col</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">k</span><span class="p">)))</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">crosstab</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
     <span class="p">)</span>
-    <span class="n">max_len</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">max_len</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">header</span><span class="p">[</span><span class="mi">0</span><span class="p">])))</span>
+    <span class="n">max_len</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">max_len</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">header</span><span class="p">[</span><span class="mi">0</span><span class="p">])))</span>
 
     <span class="nb">print</span><span class="p">(</span>
         <span class="sa">f</span><span class="s2">"| </span><span class="si">{</span><span class="n">header</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:{</span><span class="n">max_len</span><span class="si">}}</span><span class="s2"> | "</span>
-        <span class="o">+</span> <span class="s2">" | "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">c</span><span class="si">:</span><span class="s2">&gt;12</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">header</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+        <span class="o">+</span> <span class="s2">" | "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">c</span><span class="si">:</span><span class="s2">&gt;15</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">header</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
         <span class="o">+</span> <span class="s2">" |"</span>
     <span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span>
         <span class="sa">f</span><span class="s2">"| </span><span class="si">{</span><span class="s1">'-'</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">max_len</span><span class="si">}</span><span class="s2"> | "</span>
-        <span class="o">+</span> <span class="s2">" | "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="s1">'-'</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">12</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">header</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+        <span class="o">+</span> <span class="s2">" | "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="s1">'-'</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">15</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">header</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
         <span class="o">+</span> <span class="s2">" |"</span>
     <span class="p">)</span>
     
-    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">crosstab</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">crosstab</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
         <span class="nb">print</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">"| </span><span class="si">{</span><span class="n">truncate_str</span><span class="p">(</span><span class="n">features</span><span class="p">[</span><span class="n">col</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="nb">str</span><span class="p">(</span><span class="n">k</span><span class="p">)),</span><span class="w"> </span><span class="n">max_len</span><span class="p">)</span><span class="si">:{</span><span class="n">max_len</span><span class="si">}}</span><span class="s2"> | "</span>
-            <span class="o">+</span> <span class="s2">" | "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">c</span><span class="si">:</span><span class="s2">&gt;12</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">r</span><span class="p">)</span>
+            <span class="sa">f</span><span class="s2">"| </span><span class="si">{</span><span class="n">truncate_str</span><span class="p">(</span><span class="n">features</span><span class="p">[</span><span class="n">col</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">)),</span><span class="w"> </span><span class="n">max_len</span><span class="p">)</span><span class="si">:{</span><span class="n">max_len</span><span class="si">}}</span><span class="s2"> | "</span>
+            <span class="o">+</span> <span class="s2">" | "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">cnt</span><span class="si">:</span><span class="s2">&gt;6</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">prc</span><span class="si">:</span><span class="s2">&gt;5.1f</span><span class="si">}</span><span class="s2">%)"</span> <span class="k">for</span> <span class="n">cnt</span><span class="p">,</span> <span class="n">prc</span> <span class="ow">in</span> <span class="n">row</span><span class="p">)</span>
             <span class="o">+</span> <span class="s2">" |"</span>
         <span class="p">)</span>
 
+
+<span class="k">def</span> <span class="nf">truncate_str</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">max_len</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">text</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">max_len</span> <span class="k">else</span> <span class="p">(</span><span class="n">text</span><span class="p">[:</span><span class="n">max_len</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="s2">"..."</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">print_stats</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">target_vals</span><span class="p">,</span> <span class="n">data_grouped</span><span class="p">):</span>
+    <span class="n">width</span> <span class="o">=</span> <span class="mi">15</span>
+    <span class="n">table</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">[</span><span class="s2">""</span><span class="p">,</span> <span class="s2">"Min"</span><span class="p">,</span> <span class="s2">"Max"</span><span class="p">,</span> <span class="s2">"Mean"</span><span class="p">,</span> <span class="s2">"Var"</span><span class="p">,</span> <span class="s2">"Skewness"</span><span class="p">,</span> <span class="s2">"Kurtosis"</span><span class="p">],</span>
+        <span class="p">[</span><span class="s2">"-"</span> <span class="o">*</span> <span class="n">width</span><span class="p">]</span> <span class="o">*</span> <span class="mi">7</span><span class="p">,</span>
+    <span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">t</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="p">[(</span><span class="s2">"All"</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="n">col</span><span class="p">])]</span> <span class="o">+</span> <span class="p">[(</span><span class="n">tv</span><span class="p">,</span> <span class="n">data_grouped</span><span class="p">[</span><span class="n">tv</span><span class="p">][</span><span class="n">col</span><span class="p">])</span> <span class="k">for</span> <span class="n">tv</span> <span class="ow">in</span> <span class="n">target_vals</span><span class="p">]:</span>
+        <span class="n">table</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="p">[</span><span class="n">t</span><span class="p">,</span> <span class="n">d</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">d</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">d</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">d</span><span class="o">.</span><span class="n">var</span><span class="p">()</span> <span class="o">**</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">d</span><span class="o">.</span><span class="n">skew</span><span class="p">(),</span> <span class="n">d</span><span class="o">.</span><span class="n">kurt</span><span class="p">()]</span>
+        <span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">table</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="s2">"| "</span>
+            <span class="o">+</span> <span class="s2">" | "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                <span class="n">format_stat_cell</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">width</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+            <span class="p">)</span>
+            <span class="o">+</span> <span class="s2">" |"</span>
+        <span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">format_stat_cell</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">width</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">c</span><span class="si">:</span><span class="s2">&gt;</span><span class="si">{</span><span class="n">width</span><span class="si">}}</span><span class="s2">"</span> <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">c</span><span class="si">:{</span><span class="n">width</span><span class="si">}}</span><span class="s2">"</span>
+
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">c</span><span class="si">:</span><span class="s2">&gt;</span><span class="si">{</span><span class="n">width</span><span class="si">}</span><span class="s2">.5f</span><span class="si">}</span><span class="s2">"</span> <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">c</span><span class="si">:{</span><span class="n">width</span><span class="si">}</span><span class="s2">.5f</span><span class="si">}</span><span class="s2">"</span>
+
+
+<span class="n">plt_layout</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">plt_hist</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="n">target</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">target</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()))</span>
+<span class="n">plt_show</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">cl</span><span class="o">.</span><span class="n">Counter</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">target</span><span class="p">])))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span>
 
 <span class="n">make_histograms</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">features</span><span class="p">)</span>
 </pre></div>
@@ -8287,8 +8324,16 @@ Renumbering 'Target'
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedImage jp-OutputArea-output" tabindex="0">
+<img alt="No description has been provided for this image" class="" src="data:image/png;base64,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29atW6tJkyZas2aNJGnNmjW65pprFBsb67RJS0uTz+fTli1bzrnNKVOmyOPxOFNiYmJ17BoA4CdYD5UuXbooKytLy5cv1+zZs7Vr1y7dcMMN+uGHH1RQUKDQ0FBFRkb6LRMbG6uCggJJUkFBgV+gnKk/U3cuEyZMkNfrdaY9e/bY3TEAwHlZv/3Vt29f5+d27dqpS5cuatq0qf785z8rPDzc9uYcLpdLLper2tYPADi/an+kODIyUi1bttSOHTsUFxenkydP6siRI35tCgsLnTGYuLi4ck+DnZmvaJwGAFB7VHuoFBUVaefOnYqPj1enTp0UEhKinJwcpz4/P1+7d+9WSkqKJCklJUWbN2/W/v37nTbZ2dlyu91q27ZtdXcXAHARrN/+euSRRzRgwAA1bdpUe/fu1aRJkxQUFKQ777xTHo9H6enpyszMVFRUlNxutx588EGlpKSoa9eukqTevXurbdu2uvvuuzV16lQVFBToySefVEZGBre3AKCWsx4q3377re68804dOnRIDRs2VPfu3bV27Vo1bNhQkjRz5kwFBgZq8ODBKi4uVlpaml555RVn+aCgIC1ZskSjRo1SSkqKIiIiNHz4cD399NO2uwoAsCzAGGNquhPVwefzyePxyOv1yu12V3r5pMeXVkOvAMCOr5/rV6XlLvbceD589hcAwBpCBQBgDaECALCGUAEAWEOoAACsIVQAANYQKgAAawgVAIA1hAoAwBpCBQBgDaECALCGUAEAWEOoAACsIVQAANYQKgAAawgVAIA1hAoAwBpCBQBgDaECALCGUAEAWEOoAACsIVQAANYQKgAAawgVAIA1hAoAwBpCBQBgDaECALCGUAEAWEOoAACsIVQAANYQKgAAawgVAIA1hAoAwBpCBQBgDaECALCGUAEAWEOoAACsIVQAANYQKgAAawgVAIA1hAoAwJpaHSqzZs1SUlKSwsLC1KVLF61fv76muwQA+Am1NlTefvttZWZmatKkSfqf//kftW/fXmlpadq/f39Ndw0AcA7BNd2Bc5kxY4ZGjhype+65R5L06quvaunSpZo7d64ef/zxcu2Li4tVXFzszHu9XkmSz+er0vbLio9VaTkAuBSqem47s5wxxmZ3/snUQsXFxSYoKMi89957fuXDhg0zAwcOrHCZSZMmGUlMTExMTBcw7dmzp1rO37XySuXgwYMqLS1VbGysX3lsbKy2bdtW4TITJkxQZmamM19WVqbDhw8rOjpaAQEBldq+z+dTYmKi9uzZI7fbXfkdAM7C8QTbLuaYMsbohx9+UEJCQrX0rVaGSlW4XC65XC6/ssjIyItap9vt5iQAazieYFtVjymPx1MNvTmtVg7UN2jQQEFBQSosLPQrLywsVFxcXA31CgBwPrUyVEJDQ9WpUyfl5OQ4ZWVlZcrJyVFKSkoN9gwA8FNq7e2vzMxMDR8+XJ07d9Z1112nF154QUePHnWeBqtOLpdLkyZNKnc7DagKjifYVpuPqQBjquu5sov38ssva9q0aSooKFCHDh300ksvqUuXLjXdLQDAOdTqUAEAXF5q5ZgKAODyRKgAAKwhVAAA1hAqQDUbMWKEbrvttpruBq5gq1atUkBAgI4cOSJJysrKuuiXvyUpICBACxcurNQyl1WojBgxQgEBAQoICFBISIhiY2N18803a+7cuSorK6vp7l2wpKQkvfDCCzXdjX9ZBQUFGjNmjFq0aKGwsDDFxsaqW7dumj17to4duzw+SNTWSQN2nX2OOnvq06dPTXftkqm176mcS58+fTRv3jyVlpaqsLBQy5cv15gxY/SXv/xFixYtUnBw+V0qKSlRSEhIDfQWtc1XX32lbt26KTIyUs8++6yuueYauVwubd68WXPmzFGjRo00cODAcstxDOFCnTlHna2q75MYY1RaWlrhea22uqyuVKTTf5y4uDg1atRI1157rf7zP/9T77//vpYtW6asrCxJpy/ZZs+erYEDByoiIkLPPPOMJGn27Nlq3ry5QkND1apVK73xxht+6z6zXN++fRUeHq5mzZrpL3/5i1+bzZs3q2fPngoPD1d0dLTuvfdeFRUVOfU///nPNXbsWL9lbrvtNo0YMcKp/+abbzRu3DjnfzG4dB544AEFBwfr008/1e233642bdqoWbNmuvXWW7V06VINGDBAUsXHUGlpqdLT05WcnKzw8HC1atVKL774ot/6S0tLlZmZqcjISEVHR+vRRx8t9xHjFV2pdujQQZMnT3bmZ8yYoWuuuUYRERFKTEzUAw884Bxnq1at0j333COv1+scQ2eWLS4u1iOPPKJGjRopIiJCXbp00apVq6z+DvHTzpyjzp7q168v6fRx9frrr+sXv/iF6tSpo6uuukqLFi1ylj1zG2vZsmXq1KmTXC6X/vGPf6i4uFgPPfSQYmJiFBYWpu7du2vDhg2V6tf777+va6+9VmFhYWrWrJmeeuopnTp1yqnfvn27evToobCwMLVt21bZ2dlV+wVUy2cfV5Phw4ebW2+9tcK69u3bm759+xpjjJFkYmJizNy5c83OnTvNN998Y959910TEhJiZs2aZfLz88306dNNUFCQWblypbMOSSY6Otq89tprJj8/3zz55JMmKCjIfPHFF8YYY4qKikx8fLwZNGiQ2bx5s8nJyTHJyclm+PDhzjpuvPFGM2bMGL++3XrrrU6bQ4cOmcaNG5unn37a7Nu3z+zbt8/a7wc/7eDBgyYgIMBMmTLlvG0rOoZOnjxpJk6caDZs2GC++uor88c//tHUqVPHvP32285yzz//vKlfv77561//ar744guTnp5u6tWr53fcNm3a1MycOdNve+3btzeTJk1y5mfOnGlWrlxpdu3aZXJyckyrVq3MqFGjjDGnvxrihRdeMG632zmGfvjhB2OMMb/+9a/N9ddfb3Jzc82OHTvMtGnTjMvlMl9++WXVf3G4YD91jjLm9HHVuHFj8+abb5rt27ebhx56yNStW9ccOnTIGGPMRx99ZCSZdu3amQ8++MDs2LHDHDp0yDz00EMmISHB/O1vfzNbtmwxw4cPN/Xr1y+33Pfff2+MMWbevHnG4/E4283NzTVut9tkZWWZnTt3mg8++MAkJSWZyZMnG2OMKS0tNT/72c9Mr169TF5envn4449Nx44djaRyX0FyPldMqNxxxx2mTZs2xpjTf7ixY8f61V9//fVm5MiRfmX//u//bm655RZnXpK5//77/dp06dLF+cc8Z84cU79+fVNUVOTUL1261AQGBpqCggJjzPlDxZiKTyqofmvXrjWSzLvvvutXHh0dbSIiIkxERIR59NFHjTEVH0MVycjIMIMHD3bm4+PjzdSpU535kpIS07hx40qHyo+98847Jjo62pn/8UnDGGO++eYbExQUZL777ju/8l69epkJEyacd19w8YYPH26CgoKc4+nM9MwzzxhjTh9XTz75pNO+qKjISDLLli0zxvwzHBYuXOjXJiQkxCxYsMApO3nypElISHCOtfOFSq9evcyzzz7r19c33njDxMfHG2OMWbFihQkODvY7dpYtW1alULl8btSdhzHG71ZS586d/eq3bt2qe++916+sW7du5W5f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"/>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>===== Marital status =====
+<pre>{'Dropout': 1421, 'Graduate': 2209, 'Enrolled': 794}
+
+===== Marital status =====
 </pre>
 </div>
 </div>
@@ -8301,14 +8346,14 @@ Renumbering 'Target'
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>| v Marital status \ target &gt; |      Dropout |     Enrolled |     Graduate |        Total |
-| --------------------------- | ------------ | ------------ | ------------ | ------------ |
-| (1) single                  |         1184 |          720 |         2015 |         3919 |
-| (2) married                 |          179 |           52 |          148 |          379 |
-| (3) widower                 |            1 |            2 |            1 |            4 |
-| (4) divorced                |           42 |           16 |           33 |           91 |
-| (5) facto union             |           11 |            3 |           11 |           25 |
-| (6) legally separated       |            4 |            1 |            1 |            6 |
+<pre>| v Marital status \ target &gt; |         Dropout |        Enrolled |        Graduate |           Total |
+| --------------------------- | --------------- | --------------- | --------------- | --------------- |
+| (1) single                  |   1184 ( 83.3%) |    720 ( 90.7%) |   2015 ( 91.2%) |   3919 ( 88.6%) |
+| (2) married                 |    179 ( 12.6%) |     52 (  6.5%) |    148 (  6.7%) |    379 (  8.6%) |
+| (3) widower                 |      1 (  0.1%) |      2 (  0.3%) |      1 (  0.0%) |      4 (  0.1%) |
+| (4) divorced                |     42 (  3.0%) |     16 (  2.0%) |     33 (  1.5%) |     91 (  2.1%) |
+| (5) facto union             |     11 (  0.8%) |      3 (  0.4%) |     11 (  0.5%) |     25 (  0.6%) |
+| (6) legally separated       |      4 (  0.3%) |      1 (  0.1%) |      1 (  0.0%) |      6 (  0.1%) |
 
 ===== Application mode =====
 </pre>
@@ -8323,26 +8368,26 @@ Renumbering 'Target'
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>| v Application mode \ target &gt;                            |      Dropout |     Enrolled |     Graduate |        Total |
-| -------------------------------------------------------- | ------------ | ------------ | ------------ | ------------ |
-| (1) 1st phase - general contingent                       |          345 |          300 |         1063 |         1708 |
-| (2) Ordinance No. 612/93                                 |            2 |            0 |            1 |            3 |
-| (5) 1st phase - special contingent (Azores Island)       |            2 |            8 |            6 |           16 |
-| (7) Holders of other higher courses                      |           85 |            7 |           47 |          139 |
-| (10) Ordinance No. 854-B/99                              |            3 |            0 |            7 |           10 |
-| (15) International student (bachelor)                    |            5 |           10 |           15 |           30 |
-| (16) 1st phase - special contingent (Madeira Island)     |            5 |            8 |           25 |           38 |
-| (17) 2nd phase - general contingent                      |          256 |          159 |          457 |          872 |
-| (18) 3rd phase - general contingent                      |           45 |           16 |           63 |          124 |
-| (26) Ordinance No. 533-A/99, item b2) (Different Plan)   |            1 |            0 |            0 |            1 |
-| (27) Ordinance No. 533-A/99, item b3 (Other Institution) |            1 |            0 |            0 |            1 |
-| (39) Over 23 years old                                   |          435 |          121 |          229 |          785 |
-| (42) Transfer                                            |           34 |           11 |           32 |           77 |
-| (43) Change of course                                    |          115 |           75 |          122 |          312 |
-| (44) Technological specialization diploma holders        |           63 |           56 |           94 |          213 |
-| (51) Change of institution/course                        |           20 |           13 |           26 |           59 |
-| (53) Short cycle diploma holders                         |            4 |           10 |           21 |           35 |
-| (57) Change of institution/course (International)        |            0 |            0 |            1 |            1 |
+<pre>| v Application mode \ target &gt;                      |         Dropout |        Enrolled |        Graduate |           Total |
+| -------------------------------------------------- | --------------- | --------------- | --------------- | --------------- |
+| (1) 1st phase - general contingent                 |    345 ( 24.3%) |    300 ( 37.8%) |   1063 ( 48.1%) |   1708 ( 38.6%) |
+| (2) Ordinance No. 612/93                           |      2 (  0.1%) |      0 (  0.0%) |      1 (  0.0%) |      3 (  0.1%) |
+| (5) 1st phase - special contingent (Azores Island) |      2 (  0.1%) |      8 (  1.0%) |      6 (  0.3%) |     16 (  0.4%) |
+| (7) Holders of other higher courses                |     85 (  6.0%) |      7 (  0.9%) |     47 (  2.1%) |    139 (  3.1%) |
+| (10) Ordinance No. 854-B/99                        |      3 (  0.2%) |      0 (  0.0%) |      7 (  0.3%) |     10 (  0.2%) |
+| (15) International student (bachelor)              |      5 (  0.4%) |     10 (  1.3%) |     15 (  0.7%) |     30 (  0.7%) |
+| (16) 1st phase - special contingent (Madeira Is... |      5 (  0.4%) |      8 (  1.0%) |     25 (  1.1%) |     38 (  0.9%) |
+| (17) 2nd phase - general contingent                |    256 ( 18.0%) |    159 ( 20.0%) |    457 ( 20.7%) |    872 ( 19.7%) |
+| (18) 3rd phase - general contingent                |     45 (  3.2%) |     16 (  2.0%) |     63 (  2.9%) |    124 (  2.8%) |
+| (26) Ordinance No. 533-A/99, item b2) (Differen... |      1 (  0.1%) |      0 (  0.0%) |      0 (  0.0%) |      1 (  0.0%) |
+| (27) Ordinance No. 533-A/99, item b3 (Other Ins... |      1 (  0.1%) |      0 (  0.0%) |      0 (  0.0%) |      1 (  0.0%) |
+| (39) Over 23 years old                             |    435 ( 30.6%) |    121 ( 15.2%) |    229 ( 10.4%) |    785 ( 17.7%) |
+| (42) Transfer                                      |     34 (  2.4%) |     11 (  1.4%) |     32 (  1.4%) |     77 (  1.7%) |
+| (43) Change of course                              |    115 (  8.1%) |     75 (  9.4%) |    122 (  5.5%) |    312 (  7.1%) |
+| (44) Technological specialization diploma holders  |     63 (  4.4%) |     56 (  7.1%) |     94 (  4.3%) |    213 (  4.8%) |
+| (51) Change of institution/course                  |     20 (  1.4%) |     13 (  1.6%) |     26 (  1.2%) |     59 (  1.3%) |
+| (53) Short cycle diploma holders                   |      4 (  0.3%) |     10 (  1.3%) |     21 (  1.0%) |     35 (  0.8%) |
+| (57) Change of institution/course (International)  |      0 (  0.0%) |      0 (  0.0%) |      1 (  0.0%) |      1 (  0.0%) |
 
 ===== Application order =====
 Application order (between 0 - first choice; and 9 last choice)
@@ -8358,16 +8403,16 @@ Application order (between 0 - first choice; and 9 last choice)
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>| v Application order \ target &gt; |      Dropout |     Enrolled |     Graduate |        Total |
-| ------------------------------ | ------------ | ------------ | ------------ | ------------ |
-| 0                              |            0 |            0 |            1 |            1 |
-| 1                              |         1053 |          565 |         1408 |         3026 |
-| 2                              |          150 |           96 |          301 |          547 |
-| 3                              |           76 |           60 |          173 |          309 |
-| 4                              |           58 |           31 |          160 |          249 |
-| 5                              |           53 |           25 |           76 |          154 |
-| 6                              |           31 |           16 |           90 |          137 |
-| 9                              |            0 |            1 |            0 |            1 |
+<pre>| v Application order \ target &gt; |         Dropout |        Enrolled |        Graduate |           Total |
+| ------------------------------ | --------------- | --------------- | --------------- | --------------- |
+| 0                              |      0 (  0.0%) |      0 (  0.0%) |      1 (  0.0%) |      1 (  0.0%) |
+| 1                              |   1053 ( 74.1%) |    565 ( 71.2%) |   1408 ( 63.7%) |   3026 ( 68.4%) |
+| 2                              |    150 ( 10.6%) |     96 ( 12.1%) |    301 ( 13.6%) |    547 ( 12.4%) |
+| 3                              |     76 (  5.3%) |     60 (  7.6%) |    173 (  7.8%) |    309 (  7.0%) |
+| 4                              |     58 (  4.1%) |     31 (  3.9%) |    160 (  7.2%) |    249 (  5.6%) |
+| 5                              |     53 (  3.7%) |     25 (  3.1%) |     76 (  3.4%) |    154 (  3.5%) |
+| 6                              |     31 (  2.2%) |     16 (  2.0%) |     90 (  4.1%) |    137 (  3.1%) |
+| 9                              |      0 (  0.0%) |      1 (  0.1%) |      0 (  0.0%) |      1 (  0.0%) |
 
 ===== Course =====
 </pre>
@@ -8382,25 +8427,25 @@ Application order (between 0 - first choice; and 9 last choice)
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>| v Course \ target &gt;                         |      Dropout |     Enrolled |     Graduate |        Total |
-| ------------------------------------------- | ------------ | ------------ | ------------ | ------------ |
-| (33) Biofuel Production Technologies        |            8 |            3 |            1 |           12 |
-| (171) Animation and Multimedia Design       |           82 |           37 |           96 |          215 |
-| (8014) Social Service (evening attendance)  |           71 |           21 |          123 |          215 |
-| (9003) Agronomy                             |           86 |           37 |           87 |          210 |
-| (9070) Communication Design                 |           51 |           42 |          133 |          226 |
-| (9085) Veterinary Nursing                   |           90 |           75 |          172 |          337 |
-| (9119) Informatics Engineering              |           92 |           64 |           14 |          170 |
-| (9130) Equinculture                         |           78 |           21 |           42 |          141 |
-| (9147) Management                           |          134 |          108 |          138 |          380 |
-| (9238) Social Service                       |           65 |           42 |          248 |          355 |
-| (9254) Tourism                              |           96 |           41 |          115 |          252 |
-| (9500) Nursing                              |          118 |          100 |          548 |          766 |
-| (9556) Oral Hygiene                         |           33 |           17 |           36 |           86 |
-| (9670) Advertising and Marketing Management |           95 |           48 |          125 |          268 |
-| (9773) Journalism and Communication         |          101 |           34 |          196 |          331 |
-| (9853) Basic Education                      |           85 |           50 |           57 |          192 |
-| (9991) Management (evening attendance)      |          136 |           54 |           78 |          268 |
+<pre>| v Course \ target &gt;                         |         Dropout |        Enrolled |        Graduate |           Total |
+| ------------------------------------------- | --------------- | --------------- | --------------- | --------------- |
+| (33) Biofuel Production Technologies        |      8 (  0.6%) |      3 (  0.4%) |      1 (  0.0%) |     12 (  0.3%) |
+| (171) Animation and Multimedia Design       |     82 (  5.8%) |     37 (  4.7%) |     96 (  4.3%) |    215 (  4.9%) |
+| (8014) Social Service (evening attendance)  |     71 (  5.0%) |     21 (  2.6%) |    123 (  5.6%) |    215 (  4.9%) |
+| (9003) Agronomy                             |     86 (  6.1%) |     37 (  4.7%) |     87 (  3.9%) |    210 (  4.7%) |
+| (9070) Communication Design                 |     51 (  3.6%) |     42 (  5.3%) |    133 (  6.0%) |    226 (  5.1%) |
+| (9085) Veterinary Nursing                   |     90 (  6.3%) |     75 (  9.4%) |    172 (  7.8%) |    337 (  7.6%) |
+| (9119) Informatics Engineering              |     92 (  6.5%) |     64 (  8.1%) |     14 (  0.6%) |    170 (  3.8%) |
+| (9130) Equinculture                         |     78 (  5.5%) |     21 (  2.6%) |     42 (  1.9%) |    141 (  3.2%) |
+| (9147) Management                           |    134 (  9.4%) |    108 ( 13.6%) |    138 (  6.2%) |    380 (  8.6%) |
+| (9238) Social Service                       |     65 (  4.6%) |     42 (  5.3%) |    248 ( 11.2%) |    355 (  8.0%) |
+| (9254) Tourism                              |     96 (  6.8%) |     41 (  5.2%) |    115 (  5.2%) |    252 (  5.7%) |
+| (9500) Nursing                              |    118 (  8.3%) |    100 ( 12.6%) |    548 ( 24.8%) |    766 ( 17.3%) |
+| (9556) Oral Hygiene                         |     33 (  2.3%) |     17 (  2.1%) |     36 (  1.6%) |     86 (  1.9%) |
+| (9670) Advertising and Marketing Management |     95 (  6.7%) |     48 (  6.0%) |    125 (  5.7%) |    268 (  6.1%) |
+| (9773) Journalism and Communication         |    101 (  7.1%) |     34 (  4.3%) |    196 (  8.9%) |    331 (  7.5%) |
+| (9853) Basic Education                      |     85 (  6.0%) |     50 (  6.3%) |     57 (  2.6%) |    192 (  4.3%) |
+| (9991) Management (evening attendance)      |    136 (  9.6%) |     54 (  6.8%) |     78 (  3.5%) |    268 (  6.1%) |
 
 ===== Daytime/evening attendance =====
 </pre>
@@ -8415,10 +8460,10 @@ Application order (between 0 - first choice; and 9 last choice)
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>| v Daytime/evening attendance \ target &gt; |      Dropout |     Enrolled |     Graduate |        Total |
-| --------------------------------------- | ------------ | ------------ | ------------ | ------------ |
-| (0) evening                             |          207 |           75 |          201 |          483 |
-| (1) daytime                             |         1214 |          719 |         2008 |         3941 |
+<pre>| v Daytime/evening attendance \ target &gt; |         Dropout |        Enrolled |        Graduate |           Total |
+| --------------------------------------- | --------------- | --------------- | --------------- | --------------- |
+| (0) evening                             |    207 ( 14.6%) |     75 (  9.4%) |    201 (  9.1%) |    483 ( 10.9%) |
+| (1) daytime                             |   1214 ( 85.4%) |    719 ( 90.6%) |   2008 ( 90.9%) |   3941 ( 89.1%) |
 
 ===== Previous qualification =====
 (Education Level)
@@ -8434,25 +8479,25 @@ Application order (between 0 - first choice; and 9 last choice)
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>| v Previous qualification \ target &gt;                          |      Dropout |     Enrolled |     Graduate |        Total |
-| ------------------------------------------------------------ | ------------ | ------------ | ------------ | ------------ |
-| (1) Secondary education                                      |         1078 |          698 |         1941 |         3717 |
-| (2) Higher education - bachelor's degree                     |           16 |            1 |            6 |           23 |
-| (3) Higher education - degree                                |           75 |            4 |           47 |          126 |
-| (4) Higher education - master's                              |            4 |            1 |            3 |            8 |
-| (5) Higher education - doctorate                             |            1 |            0 |            0 |            1 |
-| (6) Frequency of higher education                            |            7 |            1 |            8 |           16 |
-| (9) 12th year of schooling - not completed                   |           11 |            0 |            0 |           11 |
-| (10) 11th year of schooling - not completed                  |            3 |            0 |            1 |            4 |
-| (12) Other - 11th year of schooling                          |           26 |            6 |           13 |           45 |
-| (14) 10th year of schooling                                  |            1 |            0 |            0 |            1 |
-| (15) 10th year of schooling - not completed                  |            1 |            0 |            1 |            2 |
-| (19) Basic education 3rd cycle (9th/10th/11th year) or eq... |          104 |           13 |           45 |          162 |
-| (38) Basic education 2nd cycle (6th/7th/8th year) or equiv.  |            3 |            1 |            3 |            7 |
-| (39) Technological specialization course                     |           69 |           55 |           95 |          219 |
-| (40) Higher education - degree (1st cycle)                   |           14 |            6 |           20 |           40 |
-| (42) Professional higher technical course                    |            6 |            8 |           22 |           36 |
-| (43) Higher education - master (2nd cycle)                   |            2 |            0 |            4 |            6 |
+<pre>| v Previous qualification \ target &gt;                |         Dropout |        Enrolled |        Graduate |           Total |
+| -------------------------------------------------- | --------------- | --------------- | --------------- | --------------- |
+| (1) Secondary education                            |   1078 ( 75.9%) |    698 ( 87.9%) |   1941 ( 87.9%) |   3717 ( 84.0%) |
+| (2) Higher education - bachelor's degree           |     16 (  1.1%) |      1 (  0.1%) |      6 (  0.3%) |     23 (  0.5%) |
+| (3) Higher education - degree                      |     75 (  5.3%) |      4 (  0.5%) |     47 (  2.1%) |    126 (  2.8%) |
+| (4) Higher education - master's                    |      4 (  0.3%) |      1 (  0.1%) |      3 (  0.1%) |      8 (  0.2%) |
+| (5) Higher education - doctorate                   |      1 (  0.1%) |      0 (  0.0%) |      0 (  0.0%) |      1 (  0.0%) |
+| (6) Frequency of higher education                  |      7 (  0.5%) |      1 (  0.1%) |      8 (  0.4%) |     16 (  0.4%) |
+| (9) 12th year of schooling - not completed         |     11 (  0.8%) |      0 (  0.0%) |      0 (  0.0%) |     11 (  0.2%) |
+| (10) 11th year of schooling - not completed        |      3 (  0.2%) |      0 (  0.0%) |      1 (  0.0%) |      4 (  0.1%) |
+| (12) Other - 11th year of schooling                |     26 (  1.8%) |      6 (  0.8%) |     13 (  0.6%) |     45 (  1.0%) |
+| (14) 10th year of schooling                        |      1 (  0.1%) |      0 (  0.0%) |      0 (  0.0%) |      1 (  0.0%) |
+| (15) 10th year of schooling - not completed        |      1 (  0.1%) |      0 (  0.0%) |      1 (  0.0%) |      2 (  0.0%) |
+| (19) Basic education 3rd cycle (9th/10th/11th y... |    104 (  7.3%) |     13 (  1.6%) |     45 (  2.0%) |    162 (  3.7%) |
+| (38) Basic education 2nd cycle (6th/7th/8th yea... |      3 (  0.2%) |      1 (  0.1%) |      3 (  0.1%) |      7 (  0.2%) |
+| (39) Technological specialization course           |     69 (  4.9%) |     55 (  6.9%) |     95 (  4.3%) |    219 (  5.0%) |
+| (40) Higher education - degree (1st cycle)         |     14 (  1.0%) |      6 (  0.8%) |     20 (  0.9%) |     40 (  0.9%) |
+| (42) Professional higher technical course          |      6 (  0.4%) |      8 (  1.0%) |     22 (  1.0%) |     36 (  0.8%) |
+| (43) Higher education - master (2nd cycle)         |      2 (  0.1%) |      0 (  0.0%) |      4 (  0.2%) |      6 (  0.1%) |
 
 ===== Previous qualification (grade) =====
 Grade of previous qualification (between 0 and 200)
@@ -8468,7 +8513,13 @@ Grade of previous qualification (between 0 and 200)
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>
+<pre>|                 |             Min |             Max |            Mean |             Var |        Skewness |        Kurtosis |
+| --------------- | --------------- | --------------- | --------------- | --------------- | --------------- | --------------- |
+| All             |        95.00000 |       190.00000 |       132.61331 |        13.18833 |         0.31287 |         0.96826 |
+| Dropout         |        95.00000 |       190.00000 |       131.11407 |        12.87335 |         0.42450 |         1.54826 |
+| Enrolled        |        96.00000 |       190.00000 |       131.20844 |        12.87211 |         0.42802 |         1.43350 |
+| Graduate        |        97.00000 |       184.40000 |       134.08271 |        13.34212 |         0.19967 |         0.62719 |
+
 ===== Nacionality =====
 (Nationality)
 </pre>
@@ -8483,29 +8534,29 @@ Grade of previous qualification (between 0 and 200)
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>| v Nacionality \ target &gt;    |      Dropout |     Enrolled |     Graduate |        Total |
-| --------------------------- | ------------ | ------------ | ------------ | ------------ |
-| (1) Portuguese              |         1389 |          770 |         2155 |         4314 |
-| (2) German                  |            0 |            0 |            2 |            2 |
-| (6) Spanish                 |            4 |            5 |            4 |           13 |
-| (11) Italian                |            0 |            0 |            3 |            3 |
-| (13) Dutch                  |            0 |            0 |            1 |            1 |
-| (14) English                |            0 |            0 |            1 |            1 |
-| (17) Lithuanian             |            1 |            0 |            0 |            1 |
-| (21) Angolan                |            1 |            1 |            0 |            2 |
-| (22) Cape Verdean           |            4 |            1 |            8 |           13 |
-| (24) Guinean                |            1 |            0 |            4 |            5 |
-| (25) Mozambican             |            0 |            1 |            1 |            2 |
-| (26) Santomean              |            1 |            5 |            8 |           14 |
-| (32) Turkish                |            0 |            1 |            0 |            1 |
-| (41) Brazilian              |           14 |            6 |           18 |           38 |
-| (62) Romanian               |            0 |            1 |            1 |            2 |
-| (100) Moldova (Republic of) |            2 |            1 |            0 |            3 |
-| (101) Mexican               |            1 |            0 |            1 |            2 |
-| (103) Ukrainian             |            1 |            0 |            2 |            3 |
-| (105) Russian               |            1 |            1 |            0 |            2 |
-| (108) Cuban                 |            0 |            1 |            0 |            1 |
-| (109) Colombian             |            1 |            0 |            0 |            1 |
+<pre>| v Nacionality \ target &gt;    |         Dropout |        Enrolled |        Graduate |           Total |
+| --------------------------- | --------------- | --------------- | --------------- | --------------- |
+| (1) Portuguese              |   1389 ( 97.7%) |    770 ( 97.0%) |   2155 ( 97.6%) |   4314 ( 97.5%) |
+| (2) German                  |      0 (  0.0%) |      0 (  0.0%) |      2 (  0.1%) |      2 (  0.0%) |
+| (6) Spanish                 |      4 (  0.3%) |      5 (  0.6%) |      4 (  0.2%) |     13 (  0.3%) |
+| (11) Italian                |      0 (  0.0%) |      0 (  0.0%) |      3 (  0.1%) |      3 (  0.1%) |
+| (13) Dutch                  |      0 (  0.0%) |      0 (  0.0%) |      1 (  0.0%) |      1 (  0.0%) |
+| (14) English                |      0 (  0.0%) |      0 (  0.0%) |      1 (  0.0%) |      1 (  0.0%) |
+| (17) Lithuanian             |      1 (  0.1%) |      0 (  0.0%) |      0 (  0.0%) |      1 (  0.0%) |
+| (21) Angolan                |      1 (  0.1%) |      1 (  0.1%) |      0 (  0.0%) |      2 (  0.0%) |
+| (22) Cape Verdean           |      4 (  0.3%) |      1 (  0.1%) |      8 (  0.4%) |     13 (  0.3%) |
+| (24) Guinean                |      1 (  0.1%) |      0 (  0.0%) |      4 (  0.2%) |      5 (  0.1%) |
+| (25) Mozambican             |      0 (  0.0%) |      1 (  0.1%) |      1 (  0.0%) |      2 (  0.0%) |
+| (26) Santomean              |      1 (  0.1%) |      5 (  0.6%) |      8 (  0.4%) |     14 (  0.3%) |
+| (32) Turkish                |      0 (  0.0%) |      1 (  0.1%) |      0 (  0.0%) |      1 (  0.0%) |
+| (41) Brazilian              |     14 (  1.0%) |      6 (  0.8%) |     18 (  0.8%) |     38 (  0.9%) |
+| (62) Romanian               |      0 (  0.0%) |      1 (  0.1%) |      1 (  0.0%) |      2 (  0.0%) |
+| (100) Moldova (Republic of) |      2 (  0.1%) |      1 (  0.1%) |      0 (  0.0%) |      3 (  0.1%) |
+| (101) Mexican               |      1 (  0.1%) |      0 (  0.0%) |      1 (  0.0%) |      2 (  0.0%) |
+| (103) Ukrainian             |      1 (  0.1%) |      0 (  0.0%) |      2 (  0.1%) |      3 (  0.1%) |
+| (105) Russian               |      1 (  0.1%) |      1 (  0.1%) |      0 (  0.0%) |      2 (  0.0%) |
+| (108) Cuban                 |      0 (  0.0%) |      1 (  0.1%) |      0 (  0.0%) |      1 (  0.0%) |
+| (109) Colombian             |      1 (  0.1%) |      0 (  0.0%) |      0 (  0.0%) |      1 (  0.0%) |
 
 ===== Mother's qualification =====
 (Education Level)
@@ -8521,37 +8572,37 @@ Grade of previous qualification (between 0 and 200)
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>| v Mother's qualification \ target &gt;                          |      Dropout |     Enrolled |     Graduate |        Total |
-| ------------------------------------------------------------ | ------------ | ------------ | ------------ | ------------ |
-| (1) Secondary Education - 12th Year of Schooling or Eq.      |          300 |          204 |          565 |         1069 |
-| (2) Higher Education - Bachelor's Degree                     |           20 |           23 |           40 |           83 |
-| (3) Higher Education - Degree                                |          139 |          101 |          198 |          438 |
-| (4) Higher Education - Master's                              |            8 |           15 |           26 |           49 |
-| (5) Higher Education - Doctorate                             |            8 |            5 |            8 |           21 |
-| (6) Frequency of Higher Education                            |            3 |            0 |            1 |            4 |
-| (9) 12th Year of Schooling - Not Completed                   |            5 |            0 |            3 |            8 |
-| (10) 11th Year of Schooling - Not Completed                  |            2 |            0 |            1 |            3 |
-| (11) 7th Year (Old)                                          |            2 |            0 |            1 |            3 |
-| (12) Other - 11th Year of Schooling                          |           22 |            3 |           17 |           42 |
-| (14) 10th Year of Schooling                                  |            1 |            0 |            1 |            2 |
-| (18) General commerce course                                 |            1 |            0 |            0 |            1 |
-| (19) Basic Education 3rd Cycle (9th/10th/11th Year) or Eq... |          271 |          176 |          506 |          953 |
-| (22) Technical-professional course                           |            0 |            0 |            1 |            1 |
-| (26) 7th year of schooling                                   |            0 |            0 |            1 |            1 |
-| (27) 2nd cycle of the general high school course             |            1 |            0 |            0 |            1 |
-| (29) 9th Year of Schooling - Not Completed                   |            1 |            0 |            2 |            3 |
-| (30) 8th year of schooling                                   |            1 |            0 |            2 |            3 |
-| (34) Unknown                                                 |           96 |            3 |           31 |          130 |
-| (35) Can't read or write                                     |            2 |            0 |            1 |            3 |
-| (36) Can read without having a 4th year of schooling         |            2 |            0 |            1 |            3 |
-| (37) Basic education 1st cycle (4th/5th year) or equiv.      |          383 |          169 |          457 |         1009 |
-| (38) Basic Education 2nd Cycle (6th/7th/8th Year) or Equiv.  |          140 |           91 |          331 |          562 |
-| (39) Technological specialization course                     |            4 |            2 |            2 |            8 |
-| (40) Higher education - degree (1st cycle)                   |            3 |            1 |            5 |            9 |
-| (41) Specialized higher studies course                       |            2 |            0 |            4 |            6 |
-| (42) Professional higher technical course                    |            2 |            0 |            2 |            4 |
-| (43) Higher Education - Master (2nd cycle)                   |            1 |            1 |            2 |            4 |
-| (44) Higher Education - Doctorate (3rd cycle)                |            1 |            0 |            0 |            1 |
+<pre>| v Mother's qualification \ target &gt;                |         Dropout |        Enrolled |        Graduate |           Total |
+| -------------------------------------------------- | --------------- | --------------- | --------------- | --------------- |
+| (1) Secondary Education - 12th Year of Schoolin... |    300 ( 21.1%) |    204 ( 25.7%) |    565 ( 25.6%) |   1069 ( 24.2%) |
+| (2) Higher Education - Bachelor's Degree           |     20 (  1.4%) |     23 (  2.9%) |     40 (  1.8%) |     83 (  1.9%) |
+| (3) Higher Education - Degree                      |    139 (  9.8%) |    101 ( 12.7%) |    198 (  9.0%) |    438 (  9.9%) |
+| (4) Higher Education - Master's                    |      8 (  0.6%) |     15 (  1.9%) |     26 (  1.2%) |     49 (  1.1%) |
+| (5) Higher Education - Doctorate                   |      8 (  0.6%) |      5 (  0.6%) |      8 (  0.4%) |     21 (  0.5%) |
+| (6) Frequency of Higher Education                  |      3 (  0.2%) |      0 (  0.0%) |      1 (  0.0%) |      4 (  0.1%) |
+| (9) 12th Year of Schooling - Not Completed         |      5 (  0.4%) |      0 (  0.0%) |      3 (  0.1%) |      8 (  0.2%) |
+| (10) 11th Year of Schooling - Not Completed        |      2 (  0.1%) |      0 (  0.0%) |      1 (  0.0%) |      3 (  0.1%) |
+| (11) 7th Year (Old)                                |      2 (  0.1%) |      0 (  0.0%) |      1 (  0.0%) |      3 (  0.1%) |
+| (12) Other - 11th Year of Schooling                |     22 (  1.5%) |      3 (  0.4%) |     17 (  0.8%) |     42 (  0.9%) |
+| (14) 10th Year of Schooling                        |      1 (  0.1%) |      0 (  0.0%) |      1 (  0.0%) |      2 (  0.0%) |
+| (18) General commerce course                       |      1 (  0.1%) |      0 (  0.0%) |      0 (  0.0%) |      1 (  0.0%) |
+| (19) Basic Education 3rd Cycle (9th/10th/11th Y... |    271 ( 19.1%) |    176 ( 22.2%) |    506 ( 22.9%) |    953 ( 21.5%) |
+| (22) Technical-professional course                 |      0 (  0.0%) |      0 (  0.0%) |      1 (  0.0%) |      1 (  0.0%) |
+| (26) 7th year of schooling                         |      0 (  0.0%) |      0 (  0.0%) |      1 (  0.0%) |      1 (  0.0%) |
+| (27) 2nd cycle of the general high school course   |      1 (  0.1%) |      0 (  0.0%) |      0 (  0.0%) |      1 (  0.0%) |
+| (29) 9th Year of Schooling - Not Completed         |      1 (  0.1%) |      0 (  0.0%) |      2 (  0.1%) |      3 (  0.1%) |
+| (30) 8th year of schooling                         |      1 (  0.1%) |      0 (  0.0%) |      2 (  0.1%) |      3 (  0.1%) |
+| (34) Unknown                                       |     96 (  6.8%) |      3 (  0.4%) |     31 (  1.4%) |    130 (  2.9%) |
+| (35) Can't read or write                           |      2 (  0.1%) |      0 (  0.0%) |      1 (  0.0%) |      3 (  0.1%) |
+| (36) Can read without having a 4th year of scho... |      2 (  0.1%) |      0 (  0.0%) |      1 (  0.0%) |      3 (  0.1%) |
+| (37) Basic education 1st cycle (4th/5th year) o... |    383 ( 27.0%) |    169 ( 21.3%) |    457 ( 20.7%) |   1009 ( 22.8%) |
+| (38) Basic Education 2nd Cycle (6th/7th/8th Yea... |    140 (  9.9%) |     91 ( 11.5%) |    331 ( 15.0%) |    562 ( 12.7%) |
+| (39) Technological specialization course           |      4 (  0.3%) |      2 (  0.3%) |      2 (  0.1%) |      8 (  0.2%) |
+| (40) Higher education - degree (1st cycle)         |      3 (  0.2%) |      1 (  0.1%) |      5 (  0.2%) |      9 (  0.2%) |
+| (41) Specialized higher studies course             |      2 (  0.1%) |      0 (  0.0%) |      4 (  0.2%) |      6 (  0.1%) |
+| (42) Professional higher technical course          |      2 (  0.1%) |      0 (  0.0%) |      2 (  0.1%) |      4 (  0.1%) |
+| (43) Higher Education - Master (2nd cycle)         |      1 (  0.1%) |      1 (  0.1%) |      2 (  0.1%) |      4 (  0.1%) |
+| (44) Higher Education - Doctorate (3rd cycle)      |      1 (  0.1%) |      0 (  0.0%) |      0 (  0.0%) |      1 (  0.0%) |
 
 ===== Father's qualification =====
 (Education Level)
@@ -8567,42 +8618,42 @@ Grade of previous qualification (between 0 and 200)
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>| v Father's qualification \ target &gt;                          |      Dropout |     Enrolled |     Graduate |        Total |
-| ------------------------------------------------------------ | ------------ | ------------ | ------------ | ------------ |
-| (1) Secondary Education - 12th Year of Schooling or Eq.      |          281 |          172 |          451 |          904 |
-| (2) Higher Education - Bachelor's Degree                     |           22 |           25 |           21 |           68 |
-| (3) Higher Education - Degree                                |           90 |           62 |          130 |          282 |
-| (4) Higher Education - Master's                              |           14 |            7 |           18 |           39 |
-| (5) Higher Education - Doctorate                             |           10 |            3 |            5 |           18 |
-| (6) Frequency of Higher Education                            |            2 |            0 |            0 |            2 |
-| (9) 12th Year of Schooling - Not Completed                   |            1 |            0 |            4 |            5 |
-| (10) 11th Year of Schooling - Not Completed                  |            2 |            0 |            0 |            2 |
-| (11) 7th Year (Old)                                          |            4 |            0 |            6 |           10 |
-| (12) Other - 11th Year of Schooling                          |           14 |            4 |           20 |           38 |
-| (13) 2nd year complementary high school course               |            1 |            0 |            0 |            1 |
-| (14) 10th Year of Schooling                                  |            1 |            0 |            3 |            4 |
-| (18) General commerce course                                 |            1 |            0 |            0 |            1 |
-| (19) Basic Education 3rd Cycle (9th/10th/11th Year) or Eq... |          264 |          183 |          521 |          968 |
-| (20) Complementary High School Course                        |            1 |            0 |            0 |            1 |
-| (22) Technical-professional course                           |            4 |            0 |            0 |            4 |
-| (25) Complementary High School Course - not concluded        |            1 |            0 |            0 |            1 |
-| (26) 7th year of schooling                                   |            1 |            0 |            1 |            2 |
-| (27) 2nd cycle of the general high school course             |            1 |            0 |            0 |            1 |
-| (29) 9th Year of Schooling - Not Completed                   |            3 |            0 |            0 |            3 |
-| (30) 8th year of schooling                                   |            1 |            1 |            2 |            4 |
-| (31) General Course of Administration and Commerce           |            1 |            0 |            0 |            1 |
-| (33) Supplementary Accounting and Administration             |            1 |            0 |            0 |            1 |
-| (34) Unknown                                                 |           81 |            3 |           28 |          112 |
-| (35) Can't read or write                                     |            2 |            0 |            0 |            2 |
-| (36) Can read without having a 4th year of schooling         |            5 |            0 |            3 |            8 |
-| (37) Basic education 1st cycle (4th/5th year) or equiv.      |          432 |          199 |          578 |         1209 |
-| (38) Basic Education 2nd Cycle (6th/7th/8th Year) or Equiv.  |          167 |          127 |          408 |          702 |
-| (39) Technological specialization course                     |            8 |            7 |            5 |           20 |
-| (40) Higher education - degree (1st cycle)                   |            3 |            0 |            2 |            5 |
-| (41) Specialized higher studies course                       |            1 |            1 |            0 |            2 |
-| (42) Professional higher technical course                    |            0 |            0 |            1 |            1 |
-| (43) Higher Education - Master (2nd cycle)                   |            0 |            0 |            2 |            2 |
-| (44) Higher Education - Doctorate (3rd cycle)                |            1 |            0 |            0 |            1 |
+<pre>| v Father's qualification \ target &gt;                |         Dropout |        Enrolled |        Graduate |           Total |
+| -------------------------------------------------- | --------------- | --------------- | --------------- | --------------- |
+| (1) Secondary Education - 12th Year of Schoolin... |    281 ( 19.8%) |    172 ( 21.7%) |    451 ( 20.4%) |    904 ( 20.4%) |
+| (2) Higher Education - Bachelor's Degree           |     22 (  1.5%) |     25 (  3.1%) |     21 (  1.0%) |     68 (  1.5%) |
+| (3) Higher Education - Degree                      |     90 (  6.3%) |     62 (  7.8%) |    130 (  5.9%) |    282 (  6.4%) |
+| (4) Higher Education - Master's                    |     14 (  1.0%) |      7 (  0.9%) |     18 (  0.8%) |     39 (  0.9%) |
+| (5) Higher Education - Doctorate                   |     10 (  0.7%) |      3 (  0.4%) |      5 (  0.2%) |     18 (  0.4%) |
+| (6) Frequency of Higher Education                  |      2 (  0.1%) |      0 (  0.0%) |      0 (  0.0%) |      2 (  0.0%) |
+| (9) 12th Year of Schooling - Not Completed         |      1 (  0.1%) |      0 (  0.0%) |      4 (  0.2%) |      5 (  0.1%) |
+| (10) 11th Year of Schooling - Not Completed        |      2 (  0.1%) |      0 (  0.0%) |      0 (  0.0%) |      2 (  0.0%) |
+| (11) 7th Year (Old)                                |      4 (  0.3%) |      0 (  0.0%) |      6 (  0.3%) |     10 (  0.2%) |
+| (12) Other - 11th Year of Schooling                |     14 (  1.0%) |      4 (  0.5%) |     20 (  0.9%) |     38 (  0.9%) |
+| (13) 2nd year complementary high school course     |      1 (  0.1%) |      0 (  0.0%) |      0 (  0.0%) |      1 (  0.0%) |
+| (14) 10th Year of Schooling                        |      1 (  0.1%) |      0 (  0.0%) |      3 (  0.1%) |      4 (  0.1%) |
+| (18) General commerce course                       |      1 (  0.1%) |      0 (  0.0%) |      0 (  0.0%) |      1 (  0.0%) |
+| (19) Basic Education 3rd Cycle (9th/10th/11th Y... |    264 ( 18.6%) |    183 ( 23.0%) |    521 ( 23.6%) |    968 ( 21.9%) |
+| (20) Complementary High School Course              |      1 (  0.1%) |      0 (  0.0%) |      0 (  0.0%) |      1 (  0.0%) |
+| (22) Technical-professional course                 |      4 (  0.3%) |      0 (  0.0%) |      0 (  0.0%) |      4 (  0.1%) |
+| (25) Complementary High School Course - not con... |      1 (  0.1%) |      0 (  0.0%) |      0 (  0.0%) |      1 (  0.0%) |
+| (26) 7th year of schooling                         |      1 (  0.1%) |      0 (  0.0%) |      1 (  0.0%) |      2 (  0.0%) |
+| (27) 2nd cycle of the general high school course   |      1 (  0.1%) |      0 (  0.0%) |      0 (  0.0%) |      1 (  0.0%) |
+| (29) 9th Year of Schooling - Not Completed         |      3 (  0.2%) |      0 (  0.0%) |      0 (  0.0%) |      3 (  0.1%) |
+| (30) 8th year of schooling                         |      1 (  0.1%) |      1 (  0.1%) |      2 (  0.1%) |      4 (  0.1%) |
+| (31) General Course of Administration and Commerce |      1 (  0.1%) |      0 (  0.0%) |      0 (  0.0%) |      1 (  0.0%) |
+| (33) Supplementary Accounting and Administration   |      1 (  0.1%) |      0 (  0.0%) |      0 (  0.0%) |      1 (  0.0%) |
+| (34) Unknown                                       |     81 (  5.7%) |      3 (  0.4%) |     28 (  1.3%) |    112 (  2.5%) |
+| (35) Can't read or write                           |      2 (  0.1%) |      0 (  0.0%) |      0 (  0.0%) |      2 (  0.0%) |
+| (36) Can read without having a 4th year of scho... |      5 (  0.4%) |      0 (  0.0%) |      3 (  0.1%) |      8 (  0.2%) |
+| (37) Basic education 1st cycle (4th/5th year) o... |    432 ( 30.4%) |    199 ( 25.1%) |    578 ( 26.2%) |   1209 ( 27.3%) |
+| (38) Basic Education 2nd Cycle (6th/7th/8th Yea... |    167 ( 11.8%) |    127 ( 16.0%) |    408 ( 18.5%) |    702 ( 15.9%) |
+| (39) Technological specialization course           |      8 (  0.6%) |      7 (  0.9%) |      5 (  0.2%) |     20 (  0.5%) |
+| (40) Higher education - degree (1st cycle)         |      3 (  0.2%) |      0 (  0.0%) |      2 (  0.1%) |      5 (  0.1%) |
+| (41) Specialized higher studies course             |      1 (  0.1%) |      1 (  0.1%) |      0 (  0.0%) |      2 (  0.0%) |
+| (42) Professional higher technical course          |      0 (  0.0%) |      0 (  0.0%) |      1 (  0.0%) |      1 (  0.0%) |
+| (43) Higher Education - Master (2nd cycle)         |      0 (  0.0%) |      0 (  0.0%) |      2 (  0.1%) |      2 (  0.0%) |
+| (44) Higher Education - Doctorate (3rd cycle)      |      1 (  0.1%) |      0 (  0.0%) |      0 (  0.0%) |      1 (  0.0%) |
 
 ===== Mother's occupation =====
 (Occupation)
@@ -8618,40 +8669,40 @@ Grade of previous qualification (between 0 and 200)
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>| v Mother's occupation \ target &gt;                             |      Dropout |     Enrolled |     Graduate |        Total |
-| ------------------------------------------------------------ | ------------ | ------------ | ------------ | ------------ |
-| (0) Student                                                  |           99 |            1 |           44 |          144 |
-| (1) Representatives of the Legislative Power and Executiv... |           39 |           15 |           48 |          102 |
-| (2) Specialists in Intellectual and Scientific Activities    |          102 |           78 |          138 |          318 |
-| (3) Intermediate Level Technicians and Professions           |           95 |           79 |          177 |          351 |
-| (4) Administrative staff                                     |          248 |          147 |          422 |          817 |
-| (5) Personal Services, Security and Safety Workers and Se... |          156 |           94 |          280 |          530 |
-| (6) Farmers and Skilled Workers in Agriculture, Fisheries... |           26 |           14 |           51 |           91 |
-| (7) Skilled Workers in Industry, Construction and Craftsmen  |           80 |           48 |          144 |          272 |
-| (8) Installation and Machine Operators and Assembly Workers  |           15 |            7 |           14 |           36 |
-| (9) Unskilled Workers                                        |          490 |          264 |          823 |         1577 |
-| (10) Armed Forces Professions                                |            1 |            2 |            1 |            4 |
-| (90) Other Situation                                         |           51 |            0 |           19 |           70 |
-| (99) (blank)                                                 |           13 |            2 |            2 |           17 |
-| (122) Health professionals                                   |            0 |            2 |            0 |            2 |
-| (123) teachers                                               |            2 |            2 |            3 |            7 |
-| (125) Specialists in information and communication techno... |            0 |            0 |            1 |            1 |
-| (131) Intermediate level science and engineering technici... |            0 |            1 |            0 |            1 |
-| (132) Technicians and professionals, of intermediate leve... |            0 |            2 |            1 |            3 |
-| (134) Intermediate level technicians from legal, social, ... |            1 |            2 |            1 |            4 |
-| (141) Office workers, secretaries in general and data pro... |            0 |            4 |            4 |            8 |
-| (143) Data, accounting, statistical, financial services a... |            0 |            2 |            1 |            3 |
-| (144) Other administrative support staff                     |            0 |            2 |            4 |            6 |
-| (151) personal service workers                               |            0 |            1 |            2 |            3 |
-| (152) sellers                                                |            0 |            1 |            1 |            2 |
-| (153) Personal care workers and the like                     |            0 |            0 |            2 |            2 |
-| (171) Skilled construction workers and the like, except e... |            0 |            0 |            1 |            1 |
-| (173) Skilled workers in printing, precision instrument m... |            0 |            1 |            0 |            1 |
-| (175) Workers in food processing, woodworking, clothing a... |            1 |            2 |            2 |            5 |
-| (191) cleaning workers                                       |            0 |           11 |           15 |           26 |
-| (192) Unskilled workers in agriculture, animal production... |            0 |            3 |            2 |            5 |
-| (193) Unskilled workers in extractive industry, construct... |            1 |            0 |            3 |            4 |
-| (194) Meal preparation assistants                            |            1 |            7 |            3 |           11 |
+<pre>| v Mother's occupation \ target &gt;                   |         Dropout |        Enrolled |        Graduate |           Total |
+| -------------------------------------------------- | --------------- | --------------- | --------------- | --------------- |
+| (0) Student                                        |     99 (  7.0%) |      1 (  0.1%) |     44 (  2.0%) |    144 (  3.3%) |
+| (1) Representatives of the Legislative Power an... |     39 (  2.7%) |     15 (  1.9%) |     48 (  2.2%) |    102 (  2.3%) |
+| (2) Specialists in Intellectual and Scientific ... |    102 (  7.2%) |     78 (  9.8%) |    138 (  6.2%) |    318 (  7.2%) |
+| (3) Intermediate Level Technicians and Professions |     95 (  6.7%) |     79 (  9.9%) |    177 (  8.0%) |    351 (  7.9%) |
+| (4) Administrative staff                           |    248 ( 17.5%) |    147 ( 18.5%) |    422 ( 19.1%) |    817 ( 18.5%) |
+| (5) Personal Services, Security and Safety Work... |    156 ( 11.0%) |     94 ( 11.8%) |    280 ( 12.7%) |    530 ( 12.0%) |
+| (6) Farmers and Skilled Workers in Agriculture,... |     26 (  1.8%) |     14 (  1.8%) |     51 (  2.3%) |     91 (  2.1%) |
+| (7) Skilled Workers in Industry, Construction a... |     80 (  5.6%) |     48 (  6.0%) |    144 (  6.5%) |    272 (  6.1%) |
+| (8) Installation and Machine Operators and Asse... |     15 (  1.1%) |      7 (  0.9%) |     14 (  0.6%) |     36 (  0.8%) |
+| (9) Unskilled Workers                              |    490 ( 34.5%) |    264 ( 33.2%) |    823 ( 37.3%) |   1577 ( 35.6%) |
+| (10) Armed Forces Professions                      |      1 (  0.1%) |      2 (  0.3%) |      1 (  0.0%) |      4 (  0.1%) |
+| (90) Other Situation                               |     51 (  3.6%) |      0 (  0.0%) |     19 (  0.9%) |     70 (  1.6%) |
+| (99) (blank)                                       |     13 (  0.9%) |      2 (  0.3%) |      2 (  0.1%) |     17 (  0.4%) |
+| (122) Health professionals                         |      0 (  0.0%) |      2 (  0.3%) |      0 (  0.0%) |      2 (  0.0%) |
+| (123) teachers                                     |      2 (  0.1%) |      2 (  0.3%) |      3 (  0.1%) |      7 (  0.2%) |
+| (125) Specialists in information and communicat... |      0 (  0.0%) |      0 (  0.0%) |      1 (  0.0%) |      1 (  0.0%) |
+| (131) Intermediate level science and engineerin... |      0 (  0.0%) |      1 (  0.1%) |      0 (  0.0%) |      1 (  0.0%) |
+| (132) Technicians and professionals, of interme... |      0 (  0.0%) |      2 (  0.3%) |      1 (  0.0%) |      3 (  0.1%) |
+| (134) Intermediate level technicians from legal... |      1 (  0.1%) |      2 (  0.3%) |      1 (  0.0%) |      4 (  0.1%) |
+| (141) Office workers, secretaries in general an... |      0 (  0.0%) |      4 (  0.5%) |      4 (  0.2%) |      8 (  0.2%) |
+| (143) Data, accounting, statistical, financial ... |      0 (  0.0%) |      2 (  0.3%) |      1 (  0.0%) |      3 (  0.1%) |
+| (144) Other administrative support staff           |      0 (  0.0%) |      2 (  0.3%) |      4 (  0.2%) |      6 (  0.1%) |
+| (151) personal service workers                     |      0 (  0.0%) |      1 (  0.1%) |      2 (  0.1%) |      3 (  0.1%) |
+| (152) sellers                                      |      0 (  0.0%) |      1 (  0.1%) |      1 (  0.0%) |      2 (  0.0%) |
+| (153) Personal care workers and the like           |      0 (  0.0%) |      0 (  0.0%) |      2 (  0.1%) |      2 (  0.0%) |
+| (171) Skilled construction workers and the like... |      0 (  0.0%) |      0 (  0.0%) |      1 (  0.0%) |      1 (  0.0%) |
+| (173) Skilled workers in printing, precision in... |      0 (  0.0%) |      1 (  0.1%) |      0 (  0.0%) |      1 (  0.0%) |
+| (175) Workers in food processing, woodworking, ... |      1 (  0.1%) |      2 (  0.3%) |      2 (  0.1%) |      5 (  0.1%) |
+| (191) cleaning workers                             |      0 (  0.0%) |     11 (  1.4%) |     15 (  0.7%) |     26 (  0.6%) |
+| (192) Unskilled workers in agriculture, animal ... |      0 (  0.0%) |      3 (  0.4%) |      2 (  0.1%) |      5 (  0.1%) |
+| (193) Unskilled workers in extractive industry,... |      1 (  0.1%) |      0 (  0.0%) |      3 (  0.1%) |      4 (  0.1%) |
+| (194) Meal preparation assistants                  |      1 (  0.1%) |      7 (  0.9%) |      3 (  0.1%) |     11 (  0.2%) |
 
 ===== Father's occupation =====
 (Occupation)
@@ -8667,54 +8718,54 @@ Grade of previous qualification (between 0 and 200)
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>| v Father's occupation \ target &gt;                             |      Dropout |     Enrolled |     Graduate |        Total |
-| ------------------------------------------------------------ | ------------ | ------------ | ------------ | ------------ |
-| (0) Student                                                  |           82 |            3 |           43 |          128 |
-| (1) Representatives of the Legislative Power and Executiv... |           48 |           23 |           63 |          134 |
-| (2) Specialists in Intellectual and Scientific Activities    |           70 |           50 |           77 |          197 |
-| (3) Intermediate Level Technicians and Professions           |          114 |           63 |          207 |          384 |
-| (4) Administrative staff                                     |          139 |           74 |          173 |          386 |
-| (5) Personal Services, Security and Safety Workers and Se... |          148 |          107 |          261 |          516 |
-| (6) Farmers and Skilled Workers in Agriculture, Fisheries... |           69 |           48 |          125 |          242 |
-| (7) Skilled Workers in Industry, Construction and Craftsmen  |          184 |          111 |          371 |          666 |
-| (8) Installation and Machine Operators and Assembly Workers  |           94 |           55 |          169 |          318 |
-| (9) Unskilled Workers                                        |          323 |          163 |          524 |         1010 |
-| (10) Armed Forces Professions                                |           85 |           54 |          127 |          266 |
-| (90) Other Situation                                         |           46 |            0 |           19 |           65 |
-| (99) (blank)                                                 |           13 |            2 |            4 |           19 |
-| (101) Armed Forces Officers                                  |            0 |            0 |            1 |            1 |
-| (102) Armed Forces Sergeants                                 |            0 |            1 |            1 |            2 |
-| (103) Other Armed Forces personnel                           |            1 |            1 |            2 |            4 |
-| (112) Directors of administrative and commercial services    |            1 |            1 |            0 |            2 |
-| (114) Hotel, catering, trade and other services directors    |            0 |            0 |            1 |            1 |
-| (121) Specialists in the physical sciences, mathematics, ... |            0 |            1 |            0 |            1 |
-| (122) Health professionals                                   |            0 |            1 |            1 |            2 |
-| (123) teachers                                               |            0 |            2 |            1 |            3 |
-| (124) Specialists in finance, accounting, administrative ... |            0 |            0 |            1 |            1 |
-| (131) Intermediate level science and engineering technici... |            0 |            0 |            1 |            1 |
-| (132) Technicians and professionals, of intermediate leve... |            0 |            1 |            0 |            1 |
-| (134) Intermediate level technicians from legal, social, ... |            0 |            1 |            0 |            1 |
-| (135) Information and communication technology technicians   |            0 |            1 |            2 |            3 |
-| (141) Office workers, secretaries in general and data pro... |            0 |            0 |            1 |            1 |
-| (143) Data, accounting, statistical, financial services a... |            0 |            0 |            1 |            1 |
-| (144) Other administrative support staff                     |            0 |            3 |            5 |            8 |
-| (151) personal service workers                               |            0 |            0 |            2 |            2 |
-| (152) sellers                                                |            1 |            2 |            0 |            3 |
-| (153) Personal care workers and the like                     |            0 |            0 |            1 |            1 |
-| (154) Protection and security services personnel             |            0 |            0 |            1 |            1 |
-| (161) Market-oriented farmers and skilled agricultural an... |            0 |            1 |            0 |            1 |
-| (163) Farmers, livestock keepers, fishermen, hunters and ... |            0 |            3 |            2 |            5 |
-| (171) Skilled construction workers and the like, except e... |            0 |            5 |            3 |            8 |
-| (172) Skilled workers in metallurgy, metalworking and sim... |            0 |            1 |            1 |            2 |
-| (174) Skilled workers in electricity and electronics         |            0 |            0 |            1 |            1 |
-| (175) Workers in food processing, woodworking, clothing a... |            0 |            2 |            2 |            4 |
-| (181) Fixed plant and machine operators                      |            0 |            1 |            2 |            3 |
-| (182) assembly workers                                       |            0 |            1 |            1 |            2 |
-| (183) Vehicle drivers and mobile equipment operators         |            0 |            2 |            1 |            3 |
-| (192) Unskilled workers in agriculture, animal production... |            0 |            2 |            4 |            6 |
-| (193) Unskilled workers in extractive industry, construct... |            2 |            8 |            5 |           15 |
-| (194) Meal preparation assistants                            |            1 |            0 |            1 |            2 |
-| (195) Street vendors (except food) and street service pro... |            0 |            0 |            1 |            1 |
+<pre>| v Father's occupation \ target &gt;                   |         Dropout |        Enrolled |        Graduate |           Total |
+| -------------------------------------------------- | --------------- | --------------- | --------------- | --------------- |
+| (0) Student                                        |     82 (  5.8%) |      3 (  0.4%) |     43 (  1.9%) |    128 (  2.9%) |
+| (1) Representatives of the Legislative Power an... |     48 (  3.4%) |     23 (  2.9%) |     63 (  2.9%) |    134 (  3.0%) |
+| (2) Specialists in Intellectual and Scientific ... |     70 (  4.9%) |     50 (  6.3%) |     77 (  3.5%) |    197 (  4.5%) |
+| (3) Intermediate Level Technicians and Professions |    114 (  8.0%) |     63 (  7.9%) |    207 (  9.4%) |    384 (  8.7%) |
+| (4) Administrative staff                           |    139 (  9.8%) |     74 (  9.3%) |    173 (  7.8%) |    386 (  8.7%) |
+| (5) Personal Services, Security and Safety Work... |    148 ( 10.4%) |    107 ( 13.5%) |    261 ( 11.8%) |    516 ( 11.7%) |
+| (6) Farmers and Skilled Workers in Agriculture,... |     69 (  4.9%) |     48 (  6.0%) |    125 (  5.7%) |    242 (  5.5%) |
+| (7) Skilled Workers in Industry, Construction a... |    184 ( 12.9%) |    111 ( 14.0%) |    371 ( 16.8%) |    666 ( 15.1%) |
+| (8) Installation and Machine Operators and Asse... |     94 (  6.6%) |     55 (  6.9%) |    169 (  7.7%) |    318 (  7.2%) |
+| (9) Unskilled Workers                              |    323 ( 22.7%) |    163 ( 20.5%) |    524 ( 23.7%) |   1010 ( 22.8%) |
+| (10) Armed Forces Professions                      |     85 (  6.0%) |     54 (  6.8%) |    127 (  5.7%) |    266 (  6.0%) |
+| (90) Other Situation                               |     46 (  3.2%) |      0 (  0.0%) |     19 (  0.9%) |     65 (  1.5%) |
+| (99) (blank)                                       |     13 (  0.9%) |      2 (  0.3%) |      4 (  0.2%) |     19 (  0.4%) |
+| (101) Armed Forces Officers                        |      0 (  0.0%) |      0 (  0.0%) |      1 (  0.0%) |      1 (  0.0%) |
+| (102) Armed Forces Sergeants                       |      0 (  0.0%) |      1 (  0.1%) |      1 (  0.0%) |      2 (  0.0%) |
+| (103) Other Armed Forces personnel                 |      1 (  0.1%) |      1 (  0.1%) |      2 (  0.1%) |      4 (  0.1%) |
+| (112) Directors of administrative and commercia... |      1 (  0.1%) |      1 (  0.1%) |      0 (  0.0%) |      2 (  0.0%) |
+| (114) Hotel, catering, trade and other services... |      0 (  0.0%) |      0 (  0.0%) |      1 (  0.0%) |      1 (  0.0%) |
+| (121) Specialists in the physical sciences, mat... |      0 (  0.0%) |      1 (  0.1%) |      0 (  0.0%) |      1 (  0.0%) |
+| (122) Health professionals                         |      0 (  0.0%) |      1 (  0.1%) |      1 (  0.0%) |      2 (  0.0%) |
+| (123) teachers                                     |      0 (  0.0%) |      2 (  0.3%) |      1 (  0.0%) |      3 (  0.1%) |
+| (124) Specialists in finance, accounting, admin... |      0 (  0.0%) |      0 (  0.0%) |      1 (  0.0%) |      1 (  0.0%) |
+| (131) Intermediate level science and engineerin... |      0 (  0.0%) |      0 (  0.0%) |      1 (  0.0%) |      1 (  0.0%) |
+| (132) Technicians and professionals, of interme... |      0 (  0.0%) |      1 (  0.1%) |      0 (  0.0%) |      1 (  0.0%) |
+| (134) Intermediate level technicians from legal... |      0 (  0.0%) |      1 (  0.1%) |      0 (  0.0%) |      1 (  0.0%) |
+| (135) Information and communication technology ... |      0 (  0.0%) |      1 (  0.1%) |      2 (  0.1%) |      3 (  0.1%) |
+| (141) Office workers, secretaries in general an... |      0 (  0.0%) |      0 (  0.0%) |      1 (  0.0%) |      1 (  0.0%) |
+| (143) Data, accounting, statistical, financial ... |      0 (  0.0%) |      0 (  0.0%) |      1 (  0.0%) |      1 (  0.0%) |
+| (144) Other administrative support staff           |      0 (  0.0%) |      3 (  0.4%) |      5 (  0.2%) |      8 (  0.2%) |
+| (151) personal service workers                     |      0 (  0.0%) |      0 (  0.0%) |      2 (  0.1%) |      2 (  0.0%) |
+| (152) sellers                                      |      1 (  0.1%) |      2 (  0.3%) |      0 (  0.0%) |      3 (  0.1%) |
+| (153) Personal care workers and the like           |      0 (  0.0%) |      0 (  0.0%) |      1 (  0.0%) |      1 (  0.0%) |
+| (154) Protection and security services personnel   |      0 (  0.0%) |      0 (  0.0%) |      1 (  0.0%) |      1 (  0.0%) |
+| (161) Market-oriented farmers and skilled agric... |      0 (  0.0%) |      1 (  0.1%) |      0 (  0.0%) |      1 (  0.0%) |
+| (163) Farmers, livestock keepers, fishermen, hu... |      0 (  0.0%) |      3 (  0.4%) |      2 (  0.1%) |      5 (  0.1%) |
+| (171) Skilled construction workers and the like... |      0 (  0.0%) |      5 (  0.6%) |      3 (  0.1%) |      8 (  0.2%) |
+| (172) Skilled workers in metallurgy, metalworki... |      0 (  0.0%) |      1 (  0.1%) |      1 (  0.0%) |      2 (  0.0%) |
+| (174) Skilled workers in electricity and electr... |      0 (  0.0%) |      0 (  0.0%) |      1 (  0.0%) |      1 (  0.0%) |
+| (175) Workers in food processing, woodworking, ... |      0 (  0.0%) |      2 (  0.3%) |      2 (  0.1%) |      4 (  0.1%) |
+| (181) Fixed plant and machine operators            |      0 (  0.0%) |      1 (  0.1%) |      2 (  0.1%) |      3 (  0.1%) |
+| (182) assembly workers                             |      0 (  0.0%) |      1 (  0.1%) |      1 (  0.0%) |      2 (  0.0%) |
+| (183) Vehicle drivers and mobile equipment oper... |      0 (  0.0%) |      2 (  0.3%) |      1 (  0.0%) |      3 (  0.1%) |
+| (192) Unskilled workers in agriculture, animal ... |      0 (  0.0%) |      2 (  0.3%) |      4 (  0.2%) |      6 (  0.1%) |
+| (193) Unskilled workers in extractive industry,... |      2 (  0.1%) |      8 (  1.0%) |      5 (  0.2%) |     15 (  0.3%) |
+| (194) Meal preparation assistants                  |      1 (  0.1%) |      0 (  0.0%) |      1 (  0.0%) |      2 (  0.0%) |
+| (195) Street vendors (except food) and street s... |      0 (  0.0%) |      0 (  0.0%) |      1 (  0.0%) |      1 (  0.0%) |
 
 ===== Admission grade =====
 Admission grade (between 0 and 200)
@@ -8730,7 +8781,13 @@ Admission grade (between 0 and 200)
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>
+<pre>|                 |             Min |             Max |            Mean |             Var |        Skewness |        Kurtosis |
+| --------------- | --------------- | --------------- | --------------- | --------------- | --------------- | --------------- |
+| All             |        95.00000 |       190.00000 |       126.97812 |        14.48200 |         0.53060 |         0.66272 |
+| Dropout         |        95.00000 |       190.00000 |       124.96137 |        15.12516 |         0.53248 |         0.53680 |
+| Enrolled        |        95.00000 |       190.00000 |       125.53426 |        13.79256 |         0.62770 |         1.21744 |
+| Graduate        |        95.00000 |       190.00000 |       128.79443 |        14.07144 |         0.56079 |         0.63767 |
+
 ===== Displaced =====
 </pre>
 </div>
@@ -8744,10 +8801,10 @@ Admission grade (between 0 and 200)
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>| v Displaced \ target &gt; |      Dropout |     Enrolled |     Graduate |        Total |
-| ---------------------- | ------------ | ------------ | ------------ | ------------ |
-| (0) no                 |          752 |          361 |          885 |         1998 |
-| (1) yes                |          669 |          433 |         1324 |         2426 |
+<pre>| v Displaced \ target &gt; |         Dropout |        Enrolled |        Graduate |           Total |
+| ---------------------- | --------------- | --------------- | --------------- | --------------- |
+| (0) no                 |    752 ( 52.9%) |    361 ( 45.5%) |    885 ( 40.1%) |   1998 ( 45.2%) |
+| (1) yes                |    669 ( 47.1%) |    433 ( 54.5%) |   1324 ( 59.9%) |   2426 ( 54.8%) |
 
 ===== Educational special needs =====
 </pre>
@@ -8762,10 +8819,10 @@ Admission grade (between 0 and 200)
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>| v Educational special needs \ target &gt; |      Dropout |     Enrolled |     Graduate |        Total |
-| -------------------------------------- | ------------ | ------------ | ------------ | ------------ |
-| (0) no                                 |         1404 |          783 |         2186 |         4373 |
-| (1) yes                                |           17 |           11 |           23 |           51 |
+<pre>| v Educational special needs \ target &gt; |         Dropout |        Enrolled |        Graduate |           Total |
+| -------------------------------------- | --------------- | --------------- | --------------- | --------------- |
+| (0) no                                 |   1404 ( 98.8%) |    783 ( 98.6%) |   2186 ( 99.0%) |   4373 ( 98.8%) |
+| (1) yes                                |     17 (  1.2%) |     11 (  1.4%) |     23 (  1.0%) |     51 (  1.2%) |
 
 ===== Debtor =====
 </pre>
@@ -8780,10 +8837,10 @@ Admission grade (between 0 and 200)
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>| v Debtor \ target &gt; |      Dropout |     Enrolled |     Graduate |        Total |
-| ------------------- | ------------ | ------------ | ------------ | ------------ |
-| (0) no              |         1109 |          704 |         2108 |         3921 |
-| (1) yes             |          312 |           90 |          101 |          503 |
+<pre>| v Debtor \ target &gt; |         Dropout |        Enrolled |        Graduate |           Total |
+| ------------------- | --------------- | --------------- | --------------- | --------------- |
+| (0) no              |   1109 ( 78.0%) |    704 ( 88.7%) |   2108 ( 95.4%) |   3921 ( 88.6%) |
+| (1) yes             |    312 ( 22.0%) |     90 ( 11.3%) |    101 (  4.6%) |    503 ( 11.4%) |
 
 ===== Tuition fees up to date =====
 </pre>
@@ -8798,10 +8855,10 @@ Admission grade (between 0 and 200)
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>| v Tuition fees up to date \ target &gt; |      Dropout |     Enrolled |     Graduate |        Total |
-| ------------------------------------ | ------------ | ------------ | ------------ | ------------ |
-| (0) no                               |          457 |           42 |           29 |          528 |
-| (1) yes                              |          964 |          752 |         2180 |         3896 |
+<pre>| v Tuition fees up to date \ target &gt; |         Dropout |        Enrolled |        Graduate |           Total |
+| ------------------------------------ | --------------- | --------------- | --------------- | --------------- |
+| (0) no                               |    457 ( 32.2%) |     42 (  5.3%) |     29 (  1.3%) |    528 ( 11.9%) |
+| (1) yes                              |    964 ( 67.8%) |    752 ( 94.7%) |   2180 ( 98.7%) |   3896 ( 88.1%) |
 
 ===== Gender =====
 </pre>
@@ -8816,10 +8873,10 @@ Admission grade (between 0 and 200)
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>| v Gender \ target &gt; |      Dropout |     Enrolled |     Graduate |        Total |
-| ------------------- | ------------ | ------------ | ------------ | ------------ |
-| (0) female          |          720 |          487 |         1661 |         2868 |
-| (1) male            |          701 |          307 |          548 |         1556 |
+<pre>| v Gender \ target &gt; |         Dropout |        Enrolled |        Graduate |           Total |
+| ------------------- | --------------- | --------------- | --------------- | --------------- |
+| (0) female          |    720 ( 50.7%) |    487 ( 61.3%) |   1661 ( 75.2%) |   2868 ( 64.8%) |
+| (1) male            |    701 ( 49.3%) |    307 ( 38.7%) |    548 ( 24.8%) |   1556 ( 35.2%) |
 
 ===== Scholarship holder =====
 </pre>
@@ -8834,10 +8891,10 @@ Admission grade (between 0 and 200)
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>| v Scholarship holder \ target &gt; |      Dropout |     Enrolled |     Graduate |        Total |
-| ------------------------------- | ------------ | ------------ | ------------ | ------------ |
-| (0) no                          |         1287 |          664 |         1374 |         3325 |
-| (1) yes                         |          134 |          130 |          835 |         1099 |
+<pre>| v Scholarship holder \ target &gt; |         Dropout |        Enrolled |        Graduate |           Total |
+| ------------------------------- | --------------- | --------------- | --------------- | --------------- |
+| (0) no                          |   1287 ( 90.6%) |    664 ( 83.6%) |   1374 ( 62.2%) |   3325 ( 75.2%) |
+| (1) yes                         |    134 (  9.4%) |    130 ( 16.4%) |    835 ( 37.8%) |   1099 ( 24.8%) |
 
 ===== Age at enrollment =====
 (Age) Age of studend at enrollment
@@ -8853,7 +8910,13 @@ Admission grade (between 0 and 200)
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>
+<pre>|                 |             Min |             Max |            Mean |             Var |        Skewness |        Kurtosis |
+| --------------- | --------------- | --------------- | --------------- | --------------- | --------------- | --------------- |
+| All             |        17.00000 |        70.00000 |        23.26514 |         7.58782 |         2.05499 |         4.12689 |
+| Dropout         |        18.00000 |        70.00000 |        26.06897 |         8.70402 |         1.35830 |         1.52068 |
+| Enrolled        |        17.00000 |        54.00000 |        22.36902 |         6.30267 |         2.32275 |         5.46502 |
+| Graduate        |        17.00000 |        62.00000 |        21.78361 |         6.69322 |         2.77378 |         8.02983 |
+
 ===== International =====
 </pre>
 </div>
@@ -8867,10 +8930,10 @@ Admission grade (between 0 and 200)
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>| v International \ target &gt; |      Dropout |     Enrolled |     Graduate |        Total |
-| -------------------------- | ------------ | ------------ | ------------ | ------------ |
-| (0) no                     |         1389 |          770 |         2155 |         4314 |
-| (1) yes                    |           32 |           24 |           54 |          110 |
+<pre>| v International \ target &gt; |         Dropout |        Enrolled |        Graduate |           Total |
+| -------------------------- | --------------- | --------------- | --------------- | --------------- |
+| (0) no                     |   1389 ( 97.7%) |    770 ( 97.0%) |   2155 ( 97.6%) |   4314 ( 97.5%) |
+| (1) yes                    |     32 (  2.3%) |     24 (  3.0%) |     54 (  2.4%) |    110 (  2.5%) |
 
 ===== Curricular units 1st sem (credited) =====
 Number of curricular units credited in the 1st semester
@@ -8886,29 +8949,29 @@ Number of curricular units credited in the 1st semester
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>| v Curricular units 1st sem (credited) \ target &gt; |      Dropout |     Enrolled |     Graduate |        Total |
-| ------------------------------------------------ | ------------ | ------------ | ------------ | ------------ |
-| 0                                                |         1242 |          697 |         1908 |         3847 |
-| 1                                                |           29 |           18 |           38 |           85 |
-| 2                                                |           38 |           23 |           33 |           94 |
-| 3                                                |           21 |           12 |           36 |           69 |
-| 4                                                |           24 |            4 |           19 |           47 |
-| 5                                                |            6 |           10 |           25 |           41 |
-| 6                                                |           14 |            8 |           29 |           51 |
-| 7                                                |            9 |           10 |           22 |           41 |
-| 8                                                |            5 |            4 |           22 |           31 |
-| 9                                                |            6 |            3 |           18 |           27 |
-| 10                                               |            7 |            1 |            7 |           15 |
-| 11                                               |            5 |            1 |           11 |           17 |
-| 12                                               |            2 |            1 |            9 |           12 |
-| 13                                               |            5 |            1 |            7 |           13 |
-| 14                                               |            6 |            1 |            8 |           15 |
-| 15                                               |            1 |            0 |            4 |            5 |
-| 16                                               |            0 |            0 |            3 |            3 |
-| 17                                               |            0 |            0 |            3 |            3 |
-| 18                                               |            1 |            0 |            3 |            4 |
-| 19                                               |            0 |            0 |            2 |            2 |
-| 20                                               |            0 |            0 |            2 |            2 |
+<pre>| v Curricular units 1st sem (credited) \ target &gt; |         Dropout |        Enrolled |        Graduate |           Total |
+| ------------------------------------------------ | --------------- | --------------- | --------------- | --------------- |
+| 0                                                |   1242 ( 87.4%) |    697 ( 87.8%) |   1908 ( 86.4%) |   3847 ( 87.0%) |
+| 1                                                |     29 (  2.0%) |     18 (  2.3%) |     38 (  1.7%) |     85 (  1.9%) |
+| 2                                                |     38 (  2.7%) |     23 (  2.9%) |     33 (  1.5%) |     94 (  2.1%) |
+| 3                                                |     21 (  1.5%) |     12 (  1.5%) |     36 (  1.6%) |     69 (  1.6%) |
+| 4                                                |     24 (  1.7%) |      4 (  0.5%) |     19 (  0.9%) |     47 (  1.1%) |
+| 5                                                |      6 (  0.4%) |     10 (  1.3%) |     25 (  1.1%) |     41 (  0.9%) |
+| 6                                                |     14 (  1.0%) |      8 (  1.0%) |     29 (  1.3%) |     51 (  1.2%) |
+| 7                                                |      9 (  0.6%) |     10 (  1.3%) |     22 (  1.0%) |     41 (  0.9%) |
+| 8                                                |      5 (  0.4%) |      4 (  0.5%) |     22 (  1.0%) |     31 (  0.7%) |
+| 9                                                |      6 (  0.4%) |      3 (  0.4%) |     18 (  0.8%) |     27 (  0.6%) |
+| 10                                               |      7 (  0.5%) |      1 (  0.1%) |      7 (  0.3%) |     15 (  0.3%) |
+| 11                                               |      5 (  0.4%) |      1 (  0.1%) |     11 (  0.5%) |     17 (  0.4%) |
+| 12                                               |      2 (  0.1%) |      1 (  0.1%) |      9 (  0.4%) |     12 (  0.3%) |
+| 13                                               |      5 (  0.4%) |      1 (  0.1%) |      7 (  0.3%) |     13 (  0.3%) |
+| 14                                               |      6 (  0.4%) |      1 (  0.1%) |      8 (  0.4%) |     15 (  0.3%) |
+| 15                                               |      1 (  0.1%) |      0 (  0.0%) |      4 (  0.2%) |      5 (  0.1%) |
+| 16                                               |      0 (  0.0%) |      0 (  0.0%) |      3 (  0.1%) |      3 (  0.1%) |
+| 17                                               |      0 (  0.0%) |      0 (  0.0%) |      3 (  0.1%) |      3 (  0.1%) |
+| 18                                               |      1 (  0.1%) |      0 (  0.0%) |      3 (  0.1%) |      4 (  0.1%) |
+| 19                                               |      0 (  0.0%) |      0 (  0.0%) |      2 (  0.1%) |      2 (  0.0%) |
+| 20                                               |      0 (  0.0%) |      0 (  0.0%) |      2 (  0.1%) |      2 (  0.0%) |
 
 ===== Curricular units 1st sem (enrolled) =====
 Number of curricular units enrolled in the 1st semester
@@ -8924,31 +8987,31 @@ Number of curricular units enrolled in the 1st semester
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>| v Curricular units 1st sem (enrolled) \ target &gt; |      Dropout |     Enrolled |     Graduate |        Total |
-| ------------------------------------------------ | ------------ | ------------ | ------------ | ------------ |
-| 0                                                |           77 |           28 |           75 |          180 |
-| 1                                                |            6 |            1 |            0 |            7 |
-| 2                                                |            5 |            2 |            2 |            9 |
-| 3                                                |            9 |            1 |            0 |           10 |
-| 4                                                |           21 |            0 |            0 |           21 |
-| 5                                                |          421 |          261 |          328 |         1010 |
-| 6                                                |          605 |          316 |          989 |         1910 |
-| 7                                                |          164 |          110 |          382 |          656 |
-| 8                                                |           26 |           32 |          238 |          296 |
-| 9                                                |           12 |            5 |           19 |           36 |
-| 10                                               |           24 |            9 |           19 |           52 |
-| 11                                               |            5 |            8 |           32 |           45 |
-| 12                                               |           15 |           12 |           39 |           66 |
-| 13                                               |            6 |            4 |           10 |           20 |
-| 14                                               |            3 |            0 |           19 |           22 |
-| 15                                               |           14 |            1 |           10 |           25 |
-| 16                                               |            1 |            1 |           11 |           13 |
-| 17                                               |            4 |            3 |            9 |           16 |
-| 18                                               |            2 |            0 |           17 |           19 |
-| 19                                               |            0 |            0 |            2 |            2 |
-| 21                                               |            1 |            0 |            5 |            6 |
-| 23                                               |            0 |            0 |            2 |            2 |
-| 26                                               |            0 |            0 |            1 |            1 |
+<pre>| v Curricular units 1st sem (enrolled) \ target &gt; |         Dropout |        Enrolled |        Graduate |           Total |
+| ------------------------------------------------ | --------------- | --------------- | --------------- | --------------- |
+| 0                                                |     77 (  5.4%) |     28 (  3.5%) |     75 (  3.4%) |    180 (  4.1%) |
+| 1                                                |      6 (  0.4%) |      1 (  0.1%) |      0 (  0.0%) |      7 (  0.2%) |
+| 2                                                |      5 (  0.4%) |      2 (  0.3%) |      2 (  0.1%) |      9 (  0.2%) |
+| 3                                                |      9 (  0.6%) |      1 (  0.1%) |      0 (  0.0%) |     10 (  0.2%) |
+| 4                                                |     21 (  1.5%) |      0 (  0.0%) |      0 (  0.0%) |     21 (  0.5%) |
+| 5                                                |    421 ( 29.6%) |    261 ( 32.9%) |    328 ( 14.8%) |   1010 ( 22.8%) |
+| 6                                                |    605 ( 42.6%) |    316 ( 39.8%) |    989 ( 44.8%) |   1910 ( 43.2%) |
+| 7                                                |    164 ( 11.5%) |    110 ( 13.9%) |    382 ( 17.3%) |    656 ( 14.8%) |
+| 8                                                |     26 (  1.8%) |     32 (  4.0%) |    238 ( 10.8%) |    296 (  6.7%) |
+| 9                                                |     12 (  0.8%) |      5 (  0.6%) |     19 (  0.9%) |     36 (  0.8%) |
+| 10                                               |     24 (  1.7%) |      9 (  1.1%) |     19 (  0.9%) |     52 (  1.2%) |
+| 11                                               |      5 (  0.4%) |      8 (  1.0%) |     32 (  1.4%) |     45 (  1.0%) |
+| 12                                               |     15 (  1.1%) |     12 (  1.5%) |     39 (  1.8%) |     66 (  1.5%) |
+| 13                                               |      6 (  0.4%) |      4 (  0.5%) |     10 (  0.5%) |     20 (  0.5%) |
+| 14                                               |      3 (  0.2%) |      0 (  0.0%) |     19 (  0.9%) |     22 (  0.5%) |
+| 15                                               |     14 (  1.0%) |      1 (  0.1%) |     10 (  0.5%) |     25 (  0.6%) |
+| 16                                               |      1 (  0.1%) |      1 (  0.1%) |     11 (  0.5%) |     13 (  0.3%) |
+| 17                                               |      4 (  0.3%) |      3 (  0.4%) |      9 (  0.4%) |     16 (  0.4%) |
+| 18                                               |      2 (  0.1%) |      0 (  0.0%) |     17 (  0.8%) |     19 (  0.4%) |
+| 19                                               |      0 (  0.0%) |      0 (  0.0%) |      2 (  0.1%) |      2 (  0.0%) |
+| 21                                               |      1 (  0.1%) |      0 (  0.0%) |      5 (  0.2%) |      6 (  0.1%) |
+| 23                                               |      0 (  0.0%) |      0 (  0.0%) |      2 (  0.1%) |      2 (  0.0%) |
+| 26                                               |      0 (  0.0%) |      0 (  0.0%) |      1 (  0.0%) |      1 (  0.0%) |
 
 ===== Curricular units 1st sem (evaluations) =====
 Number of evaluations to curricular units in the 1st semester
@@ -8964,7 +9027,13 @@ Number of evaluations to curricular units in the 1st semester
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>
+<pre>|                 |             Min |             Max |            Mean |             Var |        Skewness |        Kurtosis |
+| --------------- | --------------- | --------------- | --------------- | --------------- | --------------- | --------------- |
+| All             |         0.00000 |        45.00000 |         8.29905 |         4.17911 |         0.97664 |         5.46303 |
+| Dropout         |         0.00000 |        31.00000 |         7.75158 |         4.92159 |         0.21992 |         0.34254 |
+| Enrolled        |         0.00000 |        24.00000 |         9.34131 |         3.46347 |         0.08281 |         1.59213 |
+| Graduate        |         0.00000 |        45.00000 |         8.27660 |         3.80991 |         2.48763 |        14.40616 |
+
 ===== Curricular units 1st sem (approved) =====
 Number of curricular units approved in the 1st semester
 </pre>
@@ -8979,31 +9048,31 @@ Number of curricular units approved in the 1st semester
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>| v Curricular units 1st sem (approved) \ target &gt; |      Dropout |     Enrolled |     Graduate |        Total |
-| ------------------------------------------------ | ------------ | ------------ | ------------ | ------------ |
-| 0                                                |          570 |           71 |           77 |          718 |
-| 1                                                |           93 |           33 |            1 |          127 |
-| 2                                                |          112 |           42 |            6 |          160 |
-| 3                                                |          139 |           93 |           37 |          269 |
-| 4                                                |          158 |          145 |          130 |          433 |
-| 5                                                |          145 |          193 |          385 |          723 |
-| 6                                                |          117 |          138 |          916 |         1171 |
-| 7                                                |           33 |           42 |          396 |          471 |
-| 8                                                |           10 |           14 |           84 |          108 |
-| 9                                                |            8 |            5 |           27 |           40 |
-| 10                                               |            5 |            3 |           16 |           24 |
-| 11                                               |            8 |            7 |           34 |           49 |
-| 12                                               |            6 |            4 |           34 |           44 |
-| 13                                               |            8 |            3 |           15 |           26 |
-| 14                                               |            7 |            0 |            7 |           14 |
-| 15                                               |            0 |            1 |            6 |            7 |
-| 16                                               |            0 |            0 |            5 |            5 |
-| 17                                               |            1 |            0 |            9 |           10 |
-| 18                                               |            0 |            0 |           15 |           15 |
-| 19                                               |            0 |            0 |            2 |            2 |
-| 20                                               |            0 |            0 |            3 |            3 |
-| 21                                               |            1 |            0 |            3 |            4 |
-| 26                                               |            0 |            0 |            1 |            1 |
+<pre>| v Curricular units 1st sem (approved) \ target &gt; |         Dropout |        Enrolled |        Graduate |           Total |
+| ------------------------------------------------ | --------------- | --------------- | --------------- | --------------- |
+| 0                                                |    570 ( 40.1%) |     71 (  8.9%) |     77 (  3.5%) |    718 ( 16.2%) |
+| 1                                                |     93 (  6.5%) |     33 (  4.2%) |      1 (  0.0%) |    127 (  2.9%) |
+| 2                                                |    112 (  7.9%) |     42 (  5.3%) |      6 (  0.3%) |    160 (  3.6%) |
+| 3                                                |    139 (  9.8%) |     93 ( 11.7%) |     37 (  1.7%) |    269 (  6.1%) |
+| 4                                                |    158 ( 11.1%) |    145 ( 18.3%) |    130 (  5.9%) |    433 (  9.8%) |
+| 5                                                |    145 ( 10.2%) |    193 ( 24.3%) |    385 ( 17.4%) |    723 ( 16.3%) |
+| 6                                                |    117 (  8.2%) |    138 ( 17.4%) |    916 ( 41.5%) |   1171 ( 26.5%) |
+| 7                                                |     33 (  2.3%) |     42 (  5.3%) |    396 ( 17.9%) |    471 ( 10.6%) |
+| 8                                                |     10 (  0.7%) |     14 (  1.8%) |     84 (  3.8%) |    108 (  2.4%) |
+| 9                                                |      8 (  0.6%) |      5 (  0.6%) |     27 (  1.2%) |     40 (  0.9%) |
+| 10                                               |      5 (  0.4%) |      3 (  0.4%) |     16 (  0.7%) |     24 (  0.5%) |
+| 11                                               |      8 (  0.6%) |      7 (  0.9%) |     34 (  1.5%) |     49 (  1.1%) |
+| 12                                               |      6 (  0.4%) |      4 (  0.5%) |     34 (  1.5%) |     44 (  1.0%) |
+| 13                                               |      8 (  0.6%) |      3 (  0.4%) |     15 (  0.7%) |     26 (  0.6%) |
+| 14                                               |      7 (  0.5%) |      0 (  0.0%) |      7 (  0.3%) |     14 (  0.3%) |
+| 15                                               |      0 (  0.0%) |      1 (  0.1%) |      6 (  0.3%) |      7 (  0.2%) |
+| 16                                               |      0 (  0.0%) |      0 (  0.0%) |      5 (  0.2%) |      5 (  0.1%) |
+| 17                                               |      1 (  0.1%) |      0 (  0.0%) |      9 (  0.4%) |     10 (  0.2%) |
+| 18                                               |      0 (  0.0%) |      0 (  0.0%) |     15 (  0.7%) |     15 (  0.3%) |
+| 19                                               |      0 (  0.0%) |      0 (  0.0%) |      2 (  0.1%) |      2 (  0.0%) |
+| 20                                               |      0 (  0.0%) |      0 (  0.0%) |      3 (  0.1%) |      3 (  0.1%) |
+| 21                                               |      1 (  0.1%) |      0 (  0.0%) |      3 (  0.1%) |      4 (  0.1%) |
+| 26                                               |      0 (  0.0%) |      0 (  0.0%) |      1 (  0.0%) |      1 (  0.0%) |
 
 ===== Curricular units 1st sem (grade) =====
 Grade average in the 1st semester (between 0 and 20)
@@ -9019,7 +9088,13 @@ Grade average in the 1st semester (between 0 and 20)
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>
+<pre>|                 |             Min |             Max |            Mean |             Var |        Skewness |        Kurtosis |
+| --------------- | --------------- | --------------- | --------------- | --------------- | --------------- | --------------- |
+| All             |         0.00000 |        18.87500 |        10.64082 |         4.84366 |        -1.56815 |         0.90846 |
+| Dropout         |         0.00000 |        18.00000 |         7.25666 |         6.03112 |        -0.30887 |        -1.76798 |
+| Enrolled        |         0.00000 |        17.00000 |        11.12526 |         3.67508 |        -2.36056 |         4.68160 |
+| Graduate        |         0.00000 |        18.87500 |        12.64365 |         2.69903 |        -3.44997 |        14.02778 |
+
 ===== Curricular units 1st sem (without evaluations) =====
 Number of curricular units without evalutions in the 1st semester
 </pre>
@@ -9034,19 +9109,19 @@ Number of curricular units without evalutions in the 1st semester
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>| v Curricular units 1st sem (without evaluations) \ target &gt; |      Dropout |     Enrolled |     Graduate |        Total |
-| ----------------------------------------------------------- | ------------ | ------------ | ------------ | ------------ |
-| 0                                                           |         1297 |          724 |         2109 |         4130 |
-| 1                                                           |           60 |           35 |           58 |          153 |
-| 2                                                           |           29 |           21 |           29 |           79 |
-| 3                                                           |           12 |            7 |            4 |           23 |
-| 4                                                           |           13 |            1 |            1 |           15 |
-| 5                                                           |            1 |            2 |            2 |            5 |
-| 6                                                           |            3 |            1 |            2 |            6 |
-| 7                                                           |            4 |            1 |            1 |            6 |
-| 8                                                           |            2 |            2 |            0 |            4 |
-| 10                                                          |            0 |            0 |            1 |            1 |
-| 12                                                          |            0 |            0 |            2 |            2 |
+<pre>| v Curricular units 1st sem (without evaluations) \ target &gt; |         Dropout |        Enrolled |        Graduate |           Total |
+| -------------------------------------------------- | --------------- | --------------- | --------------- | --------------- |
+| 0                                                  |   1297 ( 91.3%) |    724 ( 91.2%) |   2109 ( 95.5%) |   4130 ( 93.4%) |
+| 1                                                  |     60 (  4.2%) |     35 (  4.4%) |     58 (  2.6%) |    153 (  3.5%) |
+| 2                                                  |     29 (  2.0%) |     21 (  2.6%) |     29 (  1.3%) |     79 (  1.8%) |
+| 3                                                  |     12 (  0.8%) |      7 (  0.9%) |      4 (  0.2%) |     23 (  0.5%) |
+| 4                                                  |     13 (  0.9%) |      1 (  0.1%) |      1 (  0.0%) |     15 (  0.3%) |
+| 5                                                  |      1 (  0.1%) |      2 (  0.3%) |      2 (  0.1%) |      5 (  0.1%) |
+| 6                                                  |      3 (  0.2%) |      1 (  0.1%) |      2 (  0.1%) |      6 (  0.1%) |
+| 7                                                  |      4 (  0.3%) |      1 (  0.1%) |      1 (  0.0%) |      6 (  0.1%) |
+| 8                                                  |      2 (  0.1%) |      2 (  0.3%) |      0 (  0.0%) |      4 (  0.1%) |
+| 10                                                 |      0 (  0.0%) |      0 (  0.0%) |      1 (  0.0%) |      1 (  0.0%) |
+| 12                                                 |      0 (  0.0%) |      0 (  0.0%) |      2 (  0.1%) |      2 (  0.0%) |
 
 ===== Curricular units 2nd sem (credited) =====
 Number of curricular units credited in the 2nd semester
@@ -9062,27 +9137,27 @@ Number of curricular units credited in the 2nd semester
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>| v Curricular units 2nd sem (credited) \ target &gt; |      Dropout |     Enrolled |     Graduate |        Total |
-| ------------------------------------------------ | ------------ | ------------ | ------------ | ------------ |
-| 0                                                |         1264 |          711 |         1919 |         3894 |
-| 1                                                |           37 |           25 |           45 |          107 |
-| 2                                                |           30 |           12 |           50 |           92 |
-| 3                                                |           17 |            9 |           23 |           49 |
-| 4                                                |           19 |           17 |           42 |           78 |
-| 5                                                |           24 |            7 |           37 |           68 |
-| 6                                                |            3 |            2 |           21 |           26 |
-| 7                                                |            3 |            4 |            9 |           16 |
-| 8                                                |            4 |            2 |            6 |           12 |
-| 9                                                |            4 |            2 |            9 |           15 |
-| 10                                               |            4 |            2 |            7 |           13 |
-| 11                                               |            2 |            0 |           18 |           20 |
-| 12                                               |            7 |            1 |            6 |           14 |
-| 13                                               |            2 |            0 |            7 |            9 |
-| 14                                               |            0 |            0 |            4 |            4 |
-| 15                                               |            0 |            0 |            2 |            2 |
-| 16                                               |            1 |            0 |            1 |            2 |
-| 18                                               |            0 |            0 |            2 |            2 |
-| 19                                               |            0 |            0 |            1 |            1 |
+<pre>| v Curricular units 2nd sem (credited) \ target &gt; |         Dropout |        Enrolled |        Graduate |           Total |
+| ------------------------------------------------ | --------------- | --------------- | --------------- | --------------- |
+| 0                                                |   1264 ( 89.0%) |    711 ( 89.5%) |   1919 ( 86.9%) |   3894 ( 88.0%) |
+| 1                                                |     37 (  2.6%) |     25 (  3.1%) |     45 (  2.0%) |    107 (  2.4%) |
+| 2                                                |     30 (  2.1%) |     12 (  1.5%) |     50 (  2.3%) |     92 (  2.1%) |
+| 3                                                |     17 (  1.2%) |      9 (  1.1%) |     23 (  1.0%) |     49 (  1.1%) |
+| 4                                                |     19 (  1.3%) |     17 (  2.1%) |     42 (  1.9%) |     78 (  1.8%) |
+| 5                                                |     24 (  1.7%) |      7 (  0.9%) |     37 (  1.7%) |     68 (  1.5%) |
+| 6                                                |      3 (  0.2%) |      2 (  0.3%) |     21 (  1.0%) |     26 (  0.6%) |
+| 7                                                |      3 (  0.2%) |      4 (  0.5%) |      9 (  0.4%) |     16 (  0.4%) |
+| 8                                                |      4 (  0.3%) |      2 (  0.3%) |      6 (  0.3%) |     12 (  0.3%) |
+| 9                                                |      4 (  0.3%) |      2 (  0.3%) |      9 (  0.4%) |     15 (  0.3%) |
+| 10                                               |      4 (  0.3%) |      2 (  0.3%) |      7 (  0.3%) |     13 (  0.3%) |
+| 11                                               |      2 (  0.1%) |      0 (  0.0%) |     18 (  0.8%) |     20 (  0.5%) |
+| 12                                               |      7 (  0.5%) |      1 (  0.1%) |      6 (  0.3%) |     14 (  0.3%) |
+| 13                                               |      2 (  0.1%) |      0 (  0.0%) |      7 (  0.3%) |      9 (  0.2%) |
+| 14                                               |      0 (  0.0%) |      0 (  0.0%) |      4 (  0.2%) |      4 (  0.1%) |
+| 15                                               |      0 (  0.0%) |      0 (  0.0%) |      2 (  0.1%) |      2 (  0.0%) |
+| 16                                               |      1 (  0.1%) |      0 (  0.0%) |      1 (  0.0%) |      2 (  0.0%) |
+| 18                                               |      0 (  0.0%) |      0 (  0.0%) |      2 (  0.1%) |      2 (  0.0%) |
+| 19                                               |      0 (  0.0%) |      0 (  0.0%) |      1 (  0.0%) |      1 (  0.0%) |
 
 ===== Curricular units 2nd sem (enrolled) =====
 Number of curricular units enrolled in the 2nd semester
@@ -9098,30 +9173,30 @@ Number of curricular units enrolled in the 2nd semester
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>| v Curricular units 2nd sem (enrolled) \ target &gt; |      Dropout |     Enrolled |     Graduate |        Total |
-| ------------------------------------------------ | ------------ | ------------ | ------------ | ------------ |
-| 0                                                |           77 |           28 |           75 |          180 |
-| 1                                                |            3 |            0 |            0 |            3 |
-| 2                                                |            5 |            0 |            0 |            5 |
-| 3                                                |            2 |            1 |            0 |            3 |
-| 4                                                |           14 |            2 |            1 |           17 |
-| 5                                                |          454 |          265 |          335 |         1054 |
-| 6                                                |          602 |          317 |          994 |         1913 |
-| 7                                                |           99 |           80 |          125 |          304 |
-| 8                                                |           95 |           65 |          501 |          661 |
-| 9                                                |           16 |            6 |           28 |           50 |
-| 10                                               |           12 |           10 |           26 |           48 |
-| 11                                               |           12 |           10 |           38 |           60 |
-| 12                                               |            9 |            5 |           30 |           44 |
-| 13                                               |            7 |            3 |           27 |           37 |
-| 14                                               |            9 |            0 |           13 |           22 |
-| 15                                               |            1 |            0 |            1 |            2 |
-| 16                                               |            1 |            0 |            0 |            1 |
-| 17                                               |            2 |            2 |            8 |           12 |
-| 18                                               |            1 |            0 |            1 |            2 |
-| 19                                               |            0 |            0 |            3 |            3 |
-| 21                                               |            0 |            0 |            1 |            1 |
-| 23                                               |            0 |            0 |            2 |            2 |
+<pre>| v Curricular units 2nd sem (enrolled) \ target &gt; |         Dropout |        Enrolled |        Graduate |           Total |
+| ------------------------------------------------ | --------------- | --------------- | --------------- | --------------- |
+| 0                                                |     77 (  5.4%) |     28 (  3.5%) |     75 (  3.4%) |    180 (  4.1%) |
+| 1                                                |      3 (  0.2%) |      0 (  0.0%) |      0 (  0.0%) |      3 (  0.1%) |
+| 2                                                |      5 (  0.4%) |      0 (  0.0%) |      0 (  0.0%) |      5 (  0.1%) |
+| 3                                                |      2 (  0.1%) |      1 (  0.1%) |      0 (  0.0%) |      3 (  0.1%) |
+| 4                                                |     14 (  1.0%) |      2 (  0.3%) |      1 (  0.0%) |     17 (  0.4%) |
+| 5                                                |    454 ( 31.9%) |    265 ( 33.4%) |    335 ( 15.2%) |   1054 ( 23.8%) |
+| 6                                                |    602 ( 42.4%) |    317 ( 39.9%) |    994 ( 45.0%) |   1913 ( 43.2%) |
+| 7                                                |     99 (  7.0%) |     80 ( 10.1%) |    125 (  5.7%) |    304 (  6.9%) |
+| 8                                                |     95 (  6.7%) |     65 (  8.2%) |    501 ( 22.7%) |    661 ( 14.9%) |
+| 9                                                |     16 (  1.1%) |      6 (  0.8%) |     28 (  1.3%) |     50 (  1.1%) |
+| 10                                               |     12 (  0.8%) |     10 (  1.3%) |     26 (  1.2%) |     48 (  1.1%) |
+| 11                                               |     12 (  0.8%) |     10 (  1.3%) |     38 (  1.7%) |     60 (  1.4%) |
+| 12                                               |      9 (  0.6%) |      5 (  0.6%) |     30 (  1.4%) |     44 (  1.0%) |
+| 13                                               |      7 (  0.5%) |      3 (  0.4%) |     27 (  1.2%) |     37 (  0.8%) |
+| 14                                               |      9 (  0.6%) |      0 (  0.0%) |     13 (  0.6%) |     22 (  0.5%) |
+| 15                                               |      1 (  0.1%) |      0 (  0.0%) |      1 (  0.0%) |      2 (  0.0%) |
+| 16                                               |      1 (  0.1%) |      0 (  0.0%) |      0 (  0.0%) |      1 (  0.0%) |
+| 17                                               |      2 (  0.1%) |      2 (  0.3%) |      8 (  0.4%) |     12 (  0.3%) |
+| 18                                               |      1 (  0.1%) |      0 (  0.0%) |      1 (  0.0%) |      2 (  0.0%) |
+| 19                                               |      0 (  0.0%) |      0 (  0.0%) |      3 (  0.1%) |      3 (  0.1%) |
+| 21                                               |      0 (  0.0%) |      0 (  0.0%) |      1 (  0.0%) |      1 (  0.0%) |
+| 23                                               |      0 (  0.0%) |      0 (  0.0%) |      2 (  0.1%) |      2 (  0.0%) |
 
 ===== Curricular units 2nd sem (evaluations) =====
 Number of evaluations to curricular units in the 2nd semester
@@ -9137,7 +9212,13 @@ Number of evaluations to curricular units in the 2nd semester
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>
+<pre>|                 |             Min |             Max |            Mean |             Var |        Skewness |        Kurtosis |
+| --------------- | --------------- | --------------- | --------------- | --------------- | --------------- | --------------- |
+| All             |         0.00000 |        33.00000 |         8.06329 |         3.94795 |         0.33650 |         2.06829 |
+| Dropout         |         0.00000 |        25.00000 |         7.17382 |         4.81737 |         0.12652 |        -0.17951 |
+| Enrolled        |         0.00000 |        28.00000 |         9.43577 |         3.56656 |         0.38988 |         2.75387 |
+| Graduate        |         0.00000 |        33.00000 |         8.14215 |         3.24591 |         1.29022 |         6.17024 |
+
 ===== Curricular units 2nd sem (approved) =====
 Number of curricular units approved in the 2nd semester
 </pre>
@@ -9152,28 +9233,28 @@ Number of curricular units approved in the 2nd semester
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>| v Curricular units 2nd sem (approved) \ target &gt; |      Dropout |     Enrolled |     Graduate |        Total |
-| ------------------------------------------------ | ------------ | ------------ | ------------ | ------------ |
-| 0                                                |          727 |           68 |           75 |          870 |
-| 1                                                |           86 |           28 |            0 |          114 |
-| 2                                                |          116 |           77 |            5 |          198 |
-| 3                                                |          127 |          124 |           34 |          285 |
-| 4                                                |          112 |          160 |          142 |          414 |
-| 5                                                |          119 |          157 |          450 |          726 |
-| 6                                                |           64 |           98 |          803 |          965 |
-| 7                                                |           19 |           44 |          268 |          331 |
-| 8                                                |           20 |           15 |          286 |          321 |
-| 9                                                |            6 |           11 |           19 |           36 |
-| 10                                               |           10 |            6 |           22 |           38 |
-| 11                                               |            5 |            4 |           39 |           48 |
-| 12                                               |            7 |            2 |           25 |           34 |
-| 13                                               |            1 |            0 |           20 |           21 |
-| 14                                               |            0 |            0 |            6 |            6 |
-| 16                                               |            2 |            0 |            0 |            2 |
-| 17                                               |            0 |            0 |            8 |            8 |
-| 18                                               |            0 |            0 |            2 |            2 |
-| 19                                               |            0 |            0 |            3 |            3 |
-| 20                                               |            0 |            0 |            2 |            2 |
+<pre>| v Curricular units 2nd sem (approved) \ target &gt; |         Dropout |        Enrolled |        Graduate |           Total |
+| ------------------------------------------------ | --------------- | --------------- | --------------- | --------------- |
+| 0                                                |    727 ( 51.2%) |     68 (  8.6%) |     75 (  3.4%) |    870 ( 19.7%) |
+| 1                                                |     86 (  6.1%) |     28 (  3.5%) |      0 (  0.0%) |    114 (  2.6%) |
+| 2                                                |    116 (  8.2%) |     77 (  9.7%) |      5 (  0.2%) |    198 (  4.5%) |
+| 3                                                |    127 (  8.9%) |    124 ( 15.6%) |     34 (  1.5%) |    285 (  6.4%) |
+| 4                                                |    112 (  7.9%) |    160 ( 20.2%) |    142 (  6.4%) |    414 (  9.4%) |
+| 5                                                |    119 (  8.4%) |    157 ( 19.8%) |    450 ( 20.4%) |    726 ( 16.4%) |
+| 6                                                |     64 (  4.5%) |     98 ( 12.3%) |    803 ( 36.4%) |    965 ( 21.8%) |
+| 7                                                |     19 (  1.3%) |     44 (  5.5%) |    268 ( 12.1%) |    331 (  7.5%) |
+| 8                                                |     20 (  1.4%) |     15 (  1.9%) |    286 ( 12.9%) |    321 (  7.3%) |
+| 9                                                |      6 (  0.4%) |     11 (  1.4%) |     19 (  0.9%) |     36 (  0.8%) |
+| 10                                               |     10 (  0.7%) |      6 (  0.8%) |     22 (  1.0%) |     38 (  0.9%) |
+| 11                                               |      5 (  0.4%) |      4 (  0.5%) |     39 (  1.8%) |     48 (  1.1%) |
+| 12                                               |      7 (  0.5%) |      2 (  0.3%) |     25 (  1.1%) |     34 (  0.8%) |
+| 13                                               |      1 (  0.1%) |      0 (  0.0%) |     20 (  0.9%) |     21 (  0.5%) |
+| 14                                               |      0 (  0.0%) |      0 (  0.0%) |      6 (  0.3%) |      6 (  0.1%) |
+| 16                                               |      2 (  0.1%) |      0 (  0.0%) |      0 (  0.0%) |      2 (  0.0%) |
+| 17                                               |      0 (  0.0%) |      0 (  0.0%) |      8 (  0.4%) |      8 (  0.2%) |
+| 18                                               |      0 (  0.0%) |      0 (  0.0%) |      2 (  0.1%) |      2 (  0.0%) |
+| 19                                               |      0 (  0.0%) |      0 (  0.0%) |      3 (  0.1%) |      3 (  0.1%) |
+| 20                                               |      0 (  0.0%) |      0 (  0.0%) |      2 (  0.1%) |      2 (  0.0%) |
 
 ===== Curricular units 2nd sem (grade) =====
 Grade average in the 2nd semester (between 0 and 20)
@@ -9189,7 +9270,13 @@ Grade average in the 2nd semester (between 0 and 20)
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>
+<pre>|                 |             Min |             Max |            Mean |             Var |        Skewness |        Kurtosis |
+| --------------- | --------------- | --------------- | --------------- | --------------- | --------------- | --------------- |
+| All             |         0.00000 |        18.57143 |        10.23021 |         5.21081 |        -1.31365 |         0.06657 |
+| Dropout         |         0.00000 |        17.71429 |         5.89934 |         6.11874 |         0.12690 |        -1.87063 |
+| Enrolled        |         0.00000 |        17.60000 |        11.11736 |         3.60124 |        -2.39308 |         4.96661 |
+| Graduate        |         0.00000 |        18.57143 |        12.69728 |         2.68561 |        -3.44767 |        14.21240 |
+
 ===== Curricular units 2nd sem (without evaluations) =====
 Number of curricular units without evalutions in the 1st semester
 </pre>
@@ -9204,18 +9291,18 @@ Number of curricular units without evalutions in the 1st semester
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>| v Curricular units 2nd sem (without evaluations) \ target &gt; |      Dropout |     Enrolled |     Graduate |        Total |
-| ----------------------------------------------------------- | ------------ | ------------ | ------------ | ------------ |
-| 0                                                           |         1298 |          726 |         2118 |         4142 |
-| 1                                                           |           51 |           33 |           56 |          140 |
-| 2                                                           |           20 |           13 |           15 |           48 |
-| 3                                                           |           16 |           12 |            7 |           35 |
-| 4                                                           |           13 |            5 |            3 |           21 |
-| 5                                                           |            9 |            1 |            7 |           17 |
-| 6                                                           |            5 |            1 |            2 |            8 |
-| 7                                                           |            4 |            1 |            0 |            5 |
-| 8                                                           |            4 |            2 |            0 |            6 |
-| 12                                                          |            1 |            0 |            1 |            2 |
+<pre>| v Curricular units 2nd sem (without evaluations) \ target &gt; |         Dropout |        Enrolled |        Graduate |           Total |
+| -------------------------------------------------- | --------------- | --------------- | --------------- | --------------- |
+| 0                                                  |   1298 ( 91.3%) |    726 ( 91.4%) |   2118 ( 95.9%) |   4142 ( 93.6%) |
+| 1                                                  |     51 (  3.6%) |     33 (  4.2%) |     56 (  2.5%) |    140 (  3.2%) |
+| 2                                                  |     20 (  1.4%) |     13 (  1.6%) |     15 (  0.7%) |     48 (  1.1%) |
+| 3                                                  |     16 (  1.1%) |     12 (  1.5%) |      7 (  0.3%) |     35 (  0.8%) |
+| 4                                                  |     13 (  0.9%) |      5 (  0.6%) |      3 (  0.1%) |     21 (  0.5%) |
+| 5                                                  |      9 (  0.6%) |      1 (  0.1%) |      7 (  0.3%) |     17 (  0.4%) |
+| 6                                                  |      5 (  0.4%) |      1 (  0.1%) |      2 (  0.1%) |      8 (  0.2%) |
+| 7                                                  |      4 (  0.3%) |      1 (  0.1%) |      0 (  0.0%) |      5 (  0.1%) |
+| 8                                                  |      4 (  0.3%) |      2 (  0.3%) |      0 (  0.0%) |      6 (  0.1%) |
+| 12                                                 |      1 (  0.1%) |      0 (  0.0%) |      1 (  0.0%) |      2 (  0.0%) |
 
 ===== Unemployment rate =====
 Unemployment rate (%)
@@ -9231,18 +9318,18 @@ Unemployment rate (%)
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>| v Unemployment rate \ target &gt; |      Dropout |     Enrolled |     Graduate |        Total |
-| ------------------------------ | ------------ | ------------ | ------------ | ------------ |
-| 7.6                            |          202 |          119 |          250 |          571 |
-| 8.9                            |          102 |           77 |          189 |          368 |
-| 9.4                            |          174 |          109 |          250 |          533 |
-| 10.8                           |          182 |           90 |          253 |          525 |
-| 11.1                           |          117 |           67 |          230 |          414 |
-| 12.4                           |          107 |           90 |          248 |          445 |
-| 12.7                           |          141 |           63 |          215 |          419 |
-| 13.9                           |          118 |           64 |          208 |          390 |
-| 15.5                           |          139 |           69 |          189 |          397 |
-| 16.2                           |          139 |           46 |          177 |          362 |
+<pre>| v Unemployment rate \ target &gt; |         Dropout |        Enrolled |        Graduate |           Total |
+| ------------------------------ | --------------- | --------------- | --------------- | --------------- |
+| 7.6                            |    202 ( 14.2%) |    119 ( 15.0%) |    250 ( 11.3%) |    571 ( 12.9%) |
+| 8.9                            |    102 (  7.2%) |     77 (  9.7%) |    189 (  8.6%) |    368 (  8.3%) |
+| 9.4                            |    174 ( 12.2%) |    109 ( 13.7%) |    250 ( 11.3%) |    533 ( 12.0%) |
+| 10.8                           |    182 ( 12.8%) |     90 ( 11.3%) |    253 ( 11.5%) |    525 ( 11.9%) |
+| 11.1                           |    117 (  8.2%) |     67 (  8.4%) |    230 ( 10.4%) |    414 (  9.4%) |
+| 12.4                           |    107 (  7.5%) |     90 ( 11.3%) |    248 ( 11.2%) |    445 ( 10.1%) |
+| 12.7                           |    141 (  9.9%) |     63 (  7.9%) |    215 (  9.7%) |    419 (  9.5%) |
+| 13.9                           |    118 (  8.3%) |     64 (  8.1%) |    208 (  9.4%) |    390 (  8.8%) |
+| 15.5                           |    139 (  9.8%) |     69 (  8.7%) |    189 (  8.6%) |    397 (  9.0%) |
+| 16.2                           |    139 (  9.8%) |     46 (  5.8%) |    177 (  8.0%) |    362 (  8.2%) |
 
 ===== Inflation rate =====
 Inflation rate (%)
@@ -9258,17 +9345,17 @@ Inflation rate (%)
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>| v Inflation rate \ target &gt; |      Dropout |     Enrolled |     Graduate |        Total |
-| --------------------------- | ------------ | ------------ | ------------ | ------------ |
-| -0.8                        |          174 |          109 |          250 |          533 |
-| -0.3                        |          118 |           64 |          208 |          390 |
-| 0.3                         |          139 |           46 |          177 |          362 |
-| 0.5                         |          107 |           90 |          248 |          445 |
-| 0.6                         |          117 |           67 |          230 |          414 |
-| 1.4                         |          284 |          167 |          442 |          893 |
-| 2.6                         |          202 |          119 |          250 |          571 |
-| 2.8                         |          139 |           69 |          189 |          397 |
-| 3.7                         |          141 |           63 |          215 |          419 |
+<pre>| v Inflation rate \ target &gt; |         Dropout |        Enrolled |        Graduate |           Total |
+| --------------------------- | --------------- | --------------- | --------------- | --------------- |
+| -0.8                        |    174 ( 12.2%) |    109 ( 13.7%) |    250 ( 11.3%) |    533 ( 12.0%) |
+| -0.3                        |    118 (  8.3%) |     64 (  8.1%) |    208 (  9.4%) |    390 (  8.8%) |
+| 0.3                         |    139 (  9.8%) |     46 (  5.8%) |    177 (  8.0%) |    362 (  8.2%) |
+| 0.5                         |    107 (  7.5%) |     90 ( 11.3%) |    248 ( 11.2%) |    445 ( 10.1%) |
+| 0.6                         |    117 (  8.2%) |     67 (  8.4%) |    230 ( 10.4%) |    414 (  9.4%) |
+| 1.4                         |    284 ( 20.0%) |    167 ( 21.0%) |    442 ( 20.0%) |    893 ( 20.2%) |
+| 2.6                         |    202 ( 14.2%) |    119 ( 15.0%) |    250 ( 11.3%) |    571 ( 12.9%) |
+| 2.8                         |    139 (  9.8%) |     69 (  8.7%) |    189 (  8.6%) |    397 (  9.0%) |
+| 3.7                         |    141 (  9.9%) |     63 (  7.9%) |    215 (  9.7%) |    419 (  9.5%) |
 
 ===== GDP =====
 </pre>
@@ -9283,32 +9370,19 @@ Inflation rate (%)
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>| v GDP \ target &gt; |      Dropout |     Enrolled |     Graduate |        Total |
-| ---------------- | ------------ | ------------ | ------------ | ------------ |
-| -4.06            |          139 |           69 |          189 |          397 |
-| -3.12            |          174 |          109 |          250 |          533 |
-| -1.7             |          141 |           63 |          215 |          419 |
-| -0.92            |          139 |           46 |          177 |          362 |
-| 0.32             |          202 |          119 |          250 |          571 |
-| 0.79             |          118 |           64 |          208 |          390 |
-| 1.74             |          182 |           90 |          253 |          525 |
-| 1.79             |          107 |           90 |          248 |          445 |
-| 2.02             |          117 |           67 |          230 |          414 |
-| 3.51             |          102 |           77 |          189 |          368 |
+<pre>| v GDP \ target &gt; |         Dropout |        Enrolled |        Graduate |           Total |
+| ---------------- | --------------- | --------------- | --------------- | --------------- |
+| -4.06            |    139 (  9.8%) |     69 (  8.7%) |    189 (  8.6%) |    397 (  9.0%) |
+| -3.12            |    174 ( 12.2%) |    109 ( 13.7%) |    250 ( 11.3%) |    533 ( 12.0%) |
+| -1.7             |    141 (  9.9%) |     63 (  7.9%) |    215 (  9.7%) |    419 (  9.5%) |
+| -0.92            |    139 (  9.8%) |     46 (  5.8%) |    177 (  8.0%) |    362 (  8.2%) |
+| 0.32             |    202 ( 14.2%) |    119 ( 15.0%) |    250 ( 11.3%) |    571 ( 12.9%) |
+| 0.79             |    118 (  8.3%) |     64 (  8.1%) |    208 (  9.4%) |    390 (  8.8%) |
+| 1.74             |    182 ( 12.8%) |     90 ( 11.3%) |    253 ( 11.5%) |    525 ( 11.9%) |
+| 1.79             |    107 (  7.5%) |     90 ( 11.3%) |    248 ( 11.2%) |    445 ( 10.1%) |
+| 2.02             |    117 (  8.2%) |     67 (  8.4%) |    230 ( 10.4%) |    414 (  9.4%) |
+| 3.51             |    102 (  7.2%) |     77 (  9.7%) |    189 (  8.6%) |    368 (  8.3%) |
 
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedImage jp-OutputArea-output" tabindex="0">
-<img alt="No description has been provided for this image" class="" src="data:image/png;base64,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29atW6tJkyZas2aNJGnNmjW65pprFBsb67RJS0uTz+fTli1bzrnNKVOmyOPxOFNiYmJ17BoA4CdYD5UuXbooKytLy5cv1+zZs7Vr1y7dcMMN+uGHH1RQUKDQ0FBFRkb6LRMbG6uCggJJUkFBgV+gnKk/U3cuEyZMkNfrdaY9e/bY3TEAwHlZv/3Vt29f5+d27dqpS5cuatq0qf785z8rPDzc9uYcLpdLLper2tYPADi/an+kODIyUi1bttSOHTsUFxenkydP6siRI35tCgsLnTGYuLi4ck+DnZmvaJwGAFB7VHuoFBUVaefOnYqPj1enTp0UEhKinJwcpz4/P1+7d+9WSkqKJCklJUWbN2/W/v37nTbZ2dlyu91q27ZtdXcXAHARrN/+euSRRzRgwAA1bdpUe/fu1aRJkxQUFKQ777xTHo9H6enpyszMVFRUlNxutx588EGlpKSoa9eukqTevXurbdu2uvvuuzV16lQVFBToySefVEZGBre3AKCWsx4q3377re68804dOnRIDRs2VPfu3bV27Vo1bNhQkjRz5kwFBgZq8ODBKi4uVlpaml555RVn+aCgIC1ZskSjRo1SSkqKIiIiNHz4cD399NO2uwoAsCzAGGNquhPVwefzyePxyOv1yu12V3r5pMeXVkOvAMCOr5/rV6XlLvbceD589hcAwBpCBQBgDaECALCGUAEAWEOoAACsIVQAANYQKgAAawgVAIA1hAoAwBpCBQBgDaECALCGUAEAWEOoAACsIVQAANYQKgAAawgVAIA1hAoAwBpCBQBgDaECALCGUAEAWEOoAACsIVQAANYQKgAAawgVAIA1hAoAwBpCBQBgDaECALCGUAEAWEOoAACsIVQAANYQKgAAawgVAIA1hAoAwBpCBQBgDaECALCGUAEAWEOoAACsIVQAANYQKgAAawgVAIA1hAoAwJpaHSqzZs1SUlKSwsLC1KVLF61fv76muwQA+Am1NlTefvttZWZmatKkSfqf//kftW/fXmlpadq/f39Ndw0AcA7BNd2Bc5kxY4ZGjhype+65R5L06quvaunSpZo7d64ef/zxcu2Li4tVXFzszHu9XkmSz+er0vbLio9VaTkAuBSqem47s5wxxmZ3/snUQsXFxSYoKMi89957fuXDhg0zAwcOrHCZSZMmGUlMTExMTBcw7dmzp1rO37XySuXgwYMqLS1VbGysX3lsbKy2bdtW4TITJkxQZmamM19WVqbDhw8rOjpaAQEBldq+z+dTYmKi9uzZI7fbXfkdAM7C8QTbLuaYMsbohx9+UEJCQrX0rVaGSlW4XC65XC6/ssjIyItap9vt5iQAazieYFtVjymPx1MNvTmtVg7UN2jQQEFBQSosLPQrLywsVFxcXA31CgBwPrUyVEJDQ9WpUyfl5OQ4ZWVlZcrJyVFKSkoN9gwA8FNq7e2vzMxMDR8+XJ07d9Z1112nF154QUePHnWeBqtOLpdLkyZNKnc7DagKjifYVpuPqQBjquu5sov38ssva9q0aSooKFCHDh300ksvqUuXLjXdLQDAOdTqUAEAXF5q5ZgKAODyRKgAAKwhVAAA1hAqQDUbMWKEbrvttpruBq5gq1atUkBAgI4cOSJJysrKuuiXvyUpICBACxcurNQyl1WojBgxQgEBAQoICFBISIhiY2N18803a+7cuSorK6vp7l2wpKQkvfDCCzXdjX9ZBQUFGjNmjFq0aKGwsDDFxsaqW7dumj17to4duzw+SNTWSQN2nX2OOnvq06dPTXftkqm176mcS58+fTRv3jyVlpaqsLBQy5cv15gxY/SXv/xFixYtUnBw+V0qKSlRSEhIDfQWtc1XX32lbt26KTIyUs8++6yuueYauVwubd68WXPmzFGjRo00cODAcstxDOFCnTlHna2q75MYY1RaWlrhea22uqyuVKTTf5y4uDg1atRI1157rf7zP/9T77//vpYtW6asrCxJpy/ZZs+erYEDByoiIkLPPPOMJGn27Nlq3ry5QkND1apVK73xxht+6z6zXN++fRUeHq5mzZrpL3/5i1+bzZs3q2fPngoPD1d0dLTuvfdeFRUVOfU///nPNXbsWL9lbrvtNo0YMcKp/+abbzRu3DjnfzG4dB544AEFBwfr008/1e233642bdqoWbNmuvXWW7V06VINGDBAUsXHUGlpqdLT05WcnKzw8HC1atVKL774ot/6S0tLlZmZqcjISEVHR+vRRx8t9xHjFV2pdujQQZMnT3bmZ8yYoWuuuUYRERFKTEzUAw884Bxnq1at0j333COv1+scQ2eWLS4u1iOPPKJGjRopIiJCXbp00apVq6z+DvHTzpyjzp7q168v6fRx9frrr+sXv/iF6tSpo6uuukqLFi1ylj1zG2vZsmXq1KmTXC6X/vGPf6i4uFgPPfSQYmJiFBYWpu7du2vDhg2V6tf777+va6+9VmFhYWrWrJmeeuopnTp1yqnfvn27evToobCwMLVt21bZ2dlV+wVUy2cfV5Phw4ebW2+9tcK69u3bm759+xpjjJFkYmJizNy5c83OnTvNN998Y959910TEhJiZs2aZfLz88306dNNUFCQWblypbMOSSY6Otq89tprJj8/3zz55JMmKCjIfPHFF8YYY4qKikx8fLwZNGiQ2bx5s8nJyTHJyclm+PDhzjpuvPFGM2bMGL++3XrrrU6bQ4cOmcaNG5unn37a7Nu3z+zbt8/a7wc/7eDBgyYgIMBMmTLlvG0rOoZOnjxpJk6caDZs2GC++uor88c//tHUqVPHvP32285yzz//vKlfv77561//ar744guTnp5u6tWr53fcNm3a1MycOdNve+3btzeTJk1y5mfOnGlWrlxpdu3aZXJyckyrVq3MqFGjjDGnvxrihRdeMG632zmGfvjhB2OMMb/+9a/N9ddfb3Jzc82OHTvMtGnTjMvlMl9++WXVf3G4YD91jjLm9HHVuHFj8+abb5rt27ebhx56yNStW9ccOnTIGGPMRx99ZCSZdu3amQ8++MDs2LHDHDp0yDz00EMmISHB/O1vfzNbtmwxw4cPN/Xr1y+33Pfff2+MMWbevHnG4/E4283NzTVut9tkZWWZnTt3mg8++MAkJSWZyZMnG2OMKS0tNT/72c9Mr169TF5envn4449Nx44djaRyX0FyPldMqNxxxx2mTZs2xpjTf7ixY8f61V9//fVm5MiRfmX//u//bm655RZnXpK5//77/dp06dLF+cc8Z84cU79+fVNUVOTUL1261AQGBpqCggJjzPlDxZiKTyqofmvXrjWSzLvvvutXHh0dbSIiIkxERIR59NFHjTEVH0MVycjIMIMHD3bm4+PjzdSpU535kpIS07hx40qHyo+98847Jjo62pn/8UnDGGO++eYbExQUZL777ju/8l69epkJEyacd19w8YYPH26CgoKc4+nM9MwzzxhjTh9XTz75pNO+qKjISDLLli0zxvwzHBYuXOjXJiQkxCxYsMApO3nypElISHCOtfOFSq9evcyzzz7r19c33njDxMfHG2OMWbFihQkODvY7dpYtW1alULl8btSdhzHG71ZS586d/eq3bt2qe++916+sW7du5W5f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"/>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Counter({'Graduate': 2209, 'Dropout': 1421, 'Enrolled': 794})
 </pre>
 </div>
 </div>
