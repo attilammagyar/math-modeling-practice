@@ -7581,7 +7581,7 @@ ratios within each class):</p>
 | (5) facto union             |     11 (  0.8%) |      3 (  0.4%) |     11 (  0.5%) |     25 (  0.6%) |
 | (6) legally separated       |      4 (  0.3%) |      1 (  0.1%) |      1 (  0.0%) |      6 (  0.1%) |</p>
 </li>
-<li><p>Being older at the time of enrollment ("Age at enrollment", correlation with the above: 0.52):</p>
+<li><p>Being older at the time of enrollment (<code>Age at enrollment</code>, correlation with the above: 0.52):</p>
 <p>|                 |             Min |             Max |            Mean |             Var |        Skewness |        Kurtosis |
 | --------------- | --------------- | --------------- | --------------- | --------------- | --------------- | --------------- |
 | All             |        17.00000 |        70.00000 |        23.26514 |         7.58782 |         2.05499 |         4.12689 |
@@ -9487,7 +9487,7 @@ Inflation rate (%)
 <div class="jp-InputPrompt jp-InputArea-prompt">In [51]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">make_corr_mtx</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">show_corr_mtx</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
     <span class="n">plt_layout</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
     
     <span class="c1"># Reorder features in order to bring the target column closer to the labels</span>
@@ -9497,7 +9497,8 @@ Inflation rate (%)
     <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">"BrBG"</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
-<span class="n">make_corr_mtx</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="n">show_corr_mtx</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
