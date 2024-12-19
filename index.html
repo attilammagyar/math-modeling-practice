@@ -7567,13 +7567,9 @@ others? Can any patterns or differences be identified between the
 misclassified and the correctly classified samples?</p>
 </li>
 </ol>
-<h2 id="EDA-highlights">EDA highlights<a class="anchor-link" href="#EDA-highlights">¶</a></h2><p>Some early signs that may be associated with a higher chance of dropping out
-are identifyable by taking a look at the data (the percentages below show
-ratios within each class):</p>
-<ul>
-<li>Being married or having been married:</li>
-</ul>
-<table>
+<h2 id="EDA-highlights">EDA highlights<a class="anchor-link" href="#EDA-highlights">¶</a></h2><h3 id="Dropout-early-signs">Dropout early signs<a class="anchor-link" href="#Dropout-early-signs">¶</a></h3><p>Some early signs that may be associated with a higher chance of dropping out
+are identifyable by taking a look at the data.</p>
+<h4 id="Marriage">Marriage<a class="anchor-link" href="#Marriage">¶</a></h4><table>
 <thead>
 <tr>
 <th>Marital status ↓ / Target →</th>
@@ -7628,9 +7624,7 @@ ratios within each class):</p>
 </tr>
 </tbody>
 </table>
-<ul>
-<li>Being older at the time of enrollment (correlation with the above: 0.52):</li>
-</ul>
+<h4 id="Older-age-at-enrollment">Older age at enrollment<a class="anchor-link" href="#Older-age-at-enrollment">¶</a></h4><p>Correlation with the marital status: 0.52.</p>
 <table>
 <thead>
 <tr>
@@ -7682,10 +7676,7 @@ ratios within each class):</p>
 </tr>
 </tbody>
 </table>
-<ul>
-<li>Already having a degree (see also: <code>Previous qualification</code>):</li>
-</ul>
-<table>
+<h4 id="Already-having-a-degree">Already having a degree<a class="anchor-link" href="#Already-having-a-degree">¶</a></h4><table>
 <thead>
 <tr>
 <th>Application mode ↓ / Target →</th>
@@ -7824,10 +7815,139 @@ ratios within each class):</p>
 </tr>
 </tbody>
 </table>
-<ul>
-<li>Being in debt:</li>
-</ul>
 <table>
+<thead>
+<tr>
+<th>Previous qualification ↓ / Target →</th>
+<th>Dropout</th>
+<th>Enrolled</th>
+<th>Graduate</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(1) Secondary education</td>
+<td>1078</td>
+<td>698</td>
+<td>1941</td>
+<td>3717</td>
+</tr>
+<tr>
+<td>(2) Higher education - bachelor's degree</td>
+<td>16</td>
+<td>1</td>
+<td>6</td>
+<td>23</td>
+</tr>
+<tr>
+<td>(3) Higher education - degree</td>
+<td>75</td>
+<td>4</td>
+<td>47</td>
+<td>126</td>
+</tr>
+<tr>
+<td>(4) Higher education - master's</td>
+<td>4</td>
+<td>1</td>
+<td>3</td>
+<td>8</td>
+</tr>
+<tr>
+<td>(5) Higher education - doctorate</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>(6) Frequency of higher education</td>
+<td>7</td>
+<td>1</td>
+<td>8</td>
+<td>16</td>
+</tr>
+<tr>
+<td>(9) 12th year of schooling - not completed</td>
+<td>11</td>
+<td>0</td>
+<td>0</td>
+<td>11</td>
+</tr>
+<tr>
+<td>(10) 11th year of schooling - not completed</td>
+<td>3</td>
+<td>0</td>
+<td>1</td>
+<td>4</td>
+</tr>
+<tr>
+<td>(12) Other - 11th year of schooling</td>
+<td>26</td>
+<td>6</td>
+<td>13</td>
+<td>45</td>
+</tr>
+<tr>
+<td>(14) 10th year of schooling</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>(15) 10th year of schooling - not completed</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<td>(19) Basic education .../11th year) or equiv.</td>
+<td>104</td>
+<td>13</td>
+<td>45</td>
+<td>162</td>
+</tr>
+<tr>
+<td>(38) Basic education ...h/8th year) or equiv.</td>
+<td>3</td>
+<td>1</td>
+<td>3</td>
+<td>7</td>
+</tr>
+<tr>
+<td>(39) Technological specialization course</td>
+<td>69</td>
+<td>55</td>
+<td>95</td>
+<td>219</td>
+</tr>
+<tr>
+<td>(40) Higher education - degree (1st cycle)</td>
+<td>14</td>
+<td>6</td>
+<td>20</td>
+<td>40</td>
+</tr>
+<tr>
+<td>(42) Professional higher technical course</td>
+<td>6</td>
+<td>8</td>
+<td>22</td>
+<td>36</td>
+</tr>
+<tr>
+<td>(43) Higher education - master (2nd cycle)</td>
+<td>2</td>
+<td>0</td>
+<td>4</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Being-in-debt">Being in debt<a class="anchor-link" href="#Being-in-debt">¶</a></h4><table>
 <thead>
 <tr>
 <th>Debtor ↓ / Target →</th>
@@ -7854,10 +7974,7 @@ ratios within each class):</p>
 </tr>
 </tbody>
 </table>
-<ul>
-<li>Being behind with one's tuition fees:</li>
-</ul>
-<table>
+<h4 id="Being-behind-with-one's-tuition-fees">Being behind with one's tuition fees<a class="anchor-link" href="#Being-behind-with-one's-tuition-fees">¶</a></h4><table>
 <thead>
 <tr>
 <th>Tuition fees up to date ↓ / Target →</th>
@@ -7884,10 +8001,7 @@ ratios within each class):</p>
 </tr>
 </tbody>
 </table>
-<ul>
-<li>Not holding a scholarship:</li>
-</ul>
-<table>
+<h4 id="Not-holding-a-scholarship">Not holding a scholarship<a class="anchor-link" href="#Not-holding-a-scholarship">¶</a></h4><table>
 <thead>
 <tr>
 <th>Scholarship holder ↓ / Target →</th>
@@ -7914,11 +8028,7 @@ ratios within each class):</p>
 </tr>
 </tbody>
 </table>
-<ul>
-<li><p>Having low grades or not even trying:</p>
-<p>Note: <a href="https://en.wikipedia.org/wiki/Academic_grading_in_Portugal">Portuguese high-schools and universities use a 20-point grading system</a>.</p>
-</li>
-</ul>
+<h4 id="Having-low-grades-or-not-even-trying">Having low grades or not even trying<a class="anchor-link" href="#Having-low-grades-or-not-even-trying">¶</a></h4><p>Note: <a href="https://en.wikipedia.org/wiki/Academic_grading_in_Portugal">Portuguese high-schools and universities use a 20-point grading system</a>.</p>
 <table>
 <thead>
 <tr>
@@ -8021,9 +8131,7 @@ ratios within each class):</p>
 </tr>
 </tbody>
 </table>
-<ul>
-<li>Dropout rates vary between courses:</li>
-</ul>
+<h4 id="Course-selection">Course selection<a class="anchor-link" href="#Course-selection">¶</a></h4><p>Dropout rates vary between courses. (But this is not the end of the story, see below.)</p>
 <table>
 <thead>
 <tr>
@@ -8156,14 +8264,10 @@ ratios within each class):</p>
 </tr>
 </tbody>
 </table>
-<ul>
-<li><p>Being male:</p>
-<p>(At first glance, the <em>Dropout</em> column seems to suggest the opposite, but even
+<h4 id="Being-male">Being male<a class="anchor-link" href="#Being-male">¶</a></h4><p>At first glance, the <em>Dropout</em> column seems to suggest the opposite, but even
 though there are slightly more female students in the <em>Dropout</em> category than
 males, only 25% dropped out among all the female students, while among the male
-students, the ratio was around 45%.)</p>
-</li>
-</ul>
+students, the ratio was around 45%.</p>
 <table>
 <thead>
 <tr>
@@ -8193,11 +8297,15 @@ students, the ratio was around 45%.)</p>
 </table>
 <p>One way gender might affect the performance is via differences in popularity
 of the courses among genders, but it is still unclear whether the reason would
-be that male students would tend to chose more difficult courses, or whether
-they would be less likely to put in the necessary amount of work, making some
-courses look more difficult than they actually are.</p>
-<p>Let's take a look at the courses again, but this time with both gender and
-dropout:</p>
+be that:</p>
+<ol>
+<li>male students would tend to chose more difficult courses,</li>
+<li>or whether they would be less likely to put in the necessary effort, making
+some courses appear more difficult than they actually are.</li>
+</ol>
+<p>In the first case, it would be reasonable to expect similar dropout ratios for
+both genders, while a higher dropout ratio among male students would support the
+second case.</p>
 <table>
 <thead>
 <tr>
@@ -8357,19 +8465,21 @@ dropout:</p>
 </tbody>
 </table>
 <p>Apparently, the dropout ratio of male students is higher in almost all courses
-than that of female students, even in the seemingly less difficult ones,
-supporting the latter explanation.</p>
-<h3 id="Variables-with-limited-usefulness">Variables with limited usefulness<a class="anchor-link" href="#Variables-with-limited-usefulness">¶</a></h3><p>Though there are multiple variables dealing with the nationality of students
-(<code>Nacionality</code> and <code>International</code>), and cultural and language related problems
-might play a role in one's academic performance, due to the low number of
-international students (2.5%) and the lack of any visible pattern between the
-target classes, this feature doesn't seem to very useful.</p>
-<p>Similarly, though the provided economic variables (<code>Unemployment rate</code>,
-<code>Inflation rate</code>, and <code>GDP</code>) could influence the outcomes, but their
-interpretation is unclear (Do they belong to the students' home country or
-Portugal? Are they from the beginning of the semester or the end? Were they
-in a positive or a negative trend?), and they don't seem to vary among the
-target categories.</p>
+than that of female students, even in the seemingly less difficult ones.</p>
+<h3 id="Variables-with-limited-usefulness">Variables with limited usefulness<a class="anchor-link" href="#Variables-with-limited-usefulness">¶</a></h3><h4 id="Nacionality,-International"><code>Nacionality</code>, <code>International</code><a class="anchor-link" href="#Nacionality,-International">¶</a></h4><p>Though there are multiple variables dealing with the nationality of students,
+and cultural and language related problems might play a role in one's academic
+performance, due to the low number of international students (2.5%) and the
+lack of any visible pattern between the target classes, this feature doesn't
+seem to very useful.</p>
+<h4 id="Econometrics">Econometrics<a class="anchor-link" href="#Econometrics">¶</a></h4><p>Though it would be reasonable to expect influence on the outcomes by the provided
+econometric variables (<code>Unemployment rate</code>, <code>Inflation rate</code>, and <code>GDP</code>),
+unfortunately, they don't seem to vary a lot between the target categories, and
+their interpretation is unclear as well:</p>
+<ul>
+<li>Do they belong to the students' home country or Portugal?</li>
+<li>Are they from the beginning of the semester or the end?</li>
+<li>Were they in a positive or a negative trend?</li>
+</ul>
 </div>
 </div>
 </div>
