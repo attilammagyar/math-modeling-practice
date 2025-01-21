@@ -17,16 +17,32 @@ MODELS = {
 PROBLEMS = {
     "all vs. all": "All features, 3 classes",
     "all vs. dropout": "All features, dropout",
+    "all vs. dropout_3": "All features, dropout (3 classes)",
     "all vs. did_not_graduate": "All features, did not graduate in time",
+    "all vs. did_not_graduate_3": "All features, did not graduate in time (3 classes)",
+    "all_imbalanced vs. did_not_graduate_imb": "All features, did not graduate in time (imbalanced)",
+    "all_imbalanced vs. did_not_graduate_3_imb": "All features, did not graduate in time (3 classes, imbalanced)",
     "early vs. all": "Early features, 3 classes",
     "early vs. dropout": "Early features, dropout",
+    "early vs. dropout_3": "Early features, dropout (3 classes)",
     "early vs. did_not_graduate": "Early features, did not graduate in time",
+    "early vs. did_not_graduate_3": "Early features, did not graduate in time (3 classes)",
+    "early_imbalanced vs. did_not_graduate_imb": "Early features, did not graduate in time (imbalanced)",
+    "early_imbalanced vs. did_not_graduate_3_imb": "Early features, did not graduate in time (3 classes, imbalanced)",
     "highlights vs. all": "EDA highlights, 3 classes",
     "highlights vs. dropout": "EDA highlights, dropout",
+    "highlights vs. dropout_3": "EDA highlights, dropout (3 classes)",
     "highlights vs. did_not_graduate": "EDA highlights, did not graduate in time",
+    "highlights vs. did_not_graduate_3": "EDA highlights, did not graduate in time (3 classes)",
+    "highlights_imbalanced vs. did_not_graduate_imb": "EDA highlights, did not graduate in time (imbalanced)",
+    "highlights_imbalanced vs. did_not_graduate_3_imb": "EDA highlights, did not graduate in time (3 classes, imbalanced)",
     "highlights_early vs. all": "Early EDA highlights, 3 classes",
     "highlights_early vs. dropout": "Early EDA highlights, dropout",
+    "highlights_early vs. dropout_3": "Early EDA highlights, dropout (3 classes)",
     "highlights_early vs. did_not_graduate": "Early EDA highlights, did not graduate in time",
+    "highlights_early vs. did_not_graduate_3": "Early EDA highlights, did not graduate in time (3 classes)",
+    "highlights_early_imbalanced vs. did_not_graduate_imb": "Early EDA highlights, did not graduate in time (imbalanced)",
+    "highlights_early_imbalanced vs. did_not_graduate_3_imb": "Early EDA highlights, did not graduate in time (3 classes, imbalanced)",
 }
 
 CVS = {
@@ -78,6 +94,17 @@ early features.
     print_score_table(results, 0, "F1", best)
     print_score_table(results, 1, "Precision", best)
     print_score_table(results, 2, "Recall", best)
+
+    print("#### Effects of stratification, feature selection, and tuning")
+    print("""
+The following tables show changes of the scores relative to the baseline of
+running the models for each problem with all features with naive 5-fold CV and
+without decision threshold tuning.
+""")
+
+    print_score_table(results, 0, "F1", best, delta=True)
+    print_score_table(results, 1, "Precision", best, delta=True)
+    print_score_table(results, 2, "Recall", best, delta=True)
 
     return 0
 
@@ -190,8 +217,8 @@ def print_best_models(results, best_models, title):
     print("")
 
 
-def print_score_table(results, score_idx, title, best):
-    print(f"#### {title}")
+def print_score_table(results, score_idx, title, best, delta=False):
+    print(f"####{'# Δ' if delta else ' '}{title}")
     print("")
 
     model_order = [
@@ -207,18 +234,33 @@ def print_score_table(results, score_idx, title, best):
     problem_order = [
         "all vs. all",
         "all vs. dropout",
+        "all vs. dropout_3",
         "all vs. did_not_graduate",
+        "all vs. did_not_graduate_3",
+        "all_imbalanced vs. did_not_graduate_imb",
+        "all_imbalanced vs. did_not_graduate_3_imb",
         "early vs. all",
         "early vs. dropout",
+        "early vs. dropout_3",
         "early vs. did_not_graduate",
+        "early vs. did_not_graduate_3",
+        "early_imbalanced vs. did_not_graduate_imb",
+        "early_imbalanced vs. did_not_graduate_3_imb",
         "highlights vs. all",
         "highlights vs. dropout",
+        "highlights vs. dropout_3",
         "highlights vs. did_not_graduate",
+        "highlights vs. did_not_graduate_3",
+        "highlights_imbalanced vs. did_not_graduate_imb",
+        "highlights_imbalanced vs. did_not_graduate_3_imb",
         "highlights_early vs. all",
         "highlights_early vs. dropout",
+        "highlights_early vs. dropout_3",
         "highlights_early vs. did_not_graduate",
+        "highlights_early vs. did_not_graduate_3",
+        "highlights_early_imbalanced vs. did_not_graduate_imb",
+        "highlights_early_imbalanced vs. did_not_graduate_3_imb",
     ]
-    width = 24
 
     print_header(["Problem&nbsp;↓&nbsp;/&nbsp;Model&nbsp;→"] + [MODELS[col] for col in model_order])
     print_header([":-----"] + [(":-----:") for col in model_order])
@@ -237,7 +279,7 @@ def print_score_table(results, score_idx, title, best):
                     comments.append(tuning_str)
 
                 comments = "" if not comments else (" (" + ", ".join(comments) + ")")
-                problem_str = PROBLEMS[problem] + comments
+                problem_str = (PROBLEMS[problem] + comments).replace(") (", ", ")
 
                 row = [problem_str]
 
@@ -250,7 +292,34 @@ def print_score_table(results, score_idx, title, best):
                     score_min = results[cv][problem][tuning][model]["Min"][score_idx]
                     score_mean = results[cv][problem][tuning][model]["Mean"][score_idx]
                     score_max = results[cv][problem][tuning][model]["Max"][score_idx]
-                    stats = f"{score_min:.2f},&nbsp;{score_mean:.2f},&nbsp;{score_max:.2f}"
+
+                    if (
+                            delta
+                            and (
+                                tuning != "untuned"
+                                or cv != "kfcv"
+                                or (
+                                    not problem.startswith("all vs. ")
+                                    and not problem.startswith("all_imbalanced vs. ")
+                                )
+                            )
+                    ):
+                        base_problem = (
+                            problem
+                                .replace("highlights_early_imbalanced ", "all_imbalanced ")
+                                .replace("highlights_early ", "all ")
+                                .replace("highlights_imbalanced ", "all_imbalanced ")
+                                .replace("highlights ", "all ")
+                                .replace("early_imbalanced ", "all_imbalanced ")
+                                .replace("early ", "all ")
+                        )
+                        score_min -= results["kfcv"][base_problem]["untuned"][model]["Min"][score_idx]
+                        score_mean -= results["kfcv"][base_problem]["untuned"][model]["Mean"][score_idx]
+                        score_max -= results["kfcv"][base_problem]["untuned"][model]["Max"][score_idx]
+
+                        stats = f"{score_min:+.2f},&nbsp;{score_mean:+.2f},&nbsp;{score_max:+.2f}"
+                    else:
+                        stats = f"{score_min:.2f},&nbsp;{score_mean:.2f},&nbsp;{score_max:.2f}"
 
                     if (problem, model, cv, tuning) in best:
                         stats = f"**{stats}**"

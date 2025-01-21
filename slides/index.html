@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Students' Dropout and Academic Success</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/night.css">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h3>Students' Dropout and Academic Success</h3>
+          <p>
+            Task: a university wants to provide early support for students
+            at risk of dropping out.
+          </p>
+          <p>
+            <small>
+              <a href="https://attilammagyar.github.io/math-modeling-practice">
+                https://attilammagyar.github.io/math-modeling-practice
+              </a>
+              <br/>
+              <a href="https://github.com/attilammagyar/math-modeling-practice">
+                https://github.com/attilammagyar/math-modeling-practice
+              </a>
+            </small>
+          </p>
+        </section>
+
+        <section>
+          <h3>Data</h3>
+          <ul>
+            <li>4424 students who should have graduated already.</li>
+            <li>
+              Features:
+              <ul>
+                <li>application-time info,
+                <li>first 2 semesters results.</li>
+              </ul>
+            </li>
+            <li>
+              Outcomes:
+              <ul>
+                <li>graduated: 50%,</li>
+                <li>dropped out: 32%,</li>
+                <li>still enrolled: 18%.</li>
+              </ul>
+            </li>
+            <li>
+              No inconsistencies, <code>NaN</code>'s or other problems were found.
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <section>
+            <h3>Research questions</h3>
+            <h4>What model to use?</h4>
+            <ul>
+              <li>Random guess (baseline),</li>
+              <li>k-Nearest neighbors,</li>
+              <li>Logistic regression (with elastic net),</li>
+              <li>SVM,</li>
+              <li>Decision tree, random forest,</li>
+              <li>
+                Stacked (the above fed into a final predictor),
+              </li>
+              <li>AdaBoost.</li>
+            </ul>
+          </section>
+          <section>
+            <h4>Problem formulation?</h4>
+            <ul>
+              <li>Dropout vs. non-dropout (32% : 68%).</li>
+              <li>Graduated vs. did-not-graduate on schedule (50% : 50%).</li>
+              <li>3 classes (32% : 18% : 50%).</li>
+            </ul>
+          </section>
+          <section>
+            <h4>What metric to use?</h4>
+            <ul>
+              <li>Precision and recall are both important ⇒ F1.</li>
+              <li>Stratified CV?</li>
+            </ul>
+          </section>
+          <section>
+            <h4>Which features to use?</h4>
+            <ul>
+              <li>All.</li>
+              <li>Early features.</li>
+              <li>EDA highlights.</li>
+              <li>Early EDA highlights.</li>
+            </ul>
+          </section>
+          <section>
+            <h4>Patterns in the misclassifications?</h4>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h3>EDA highlights</h3>
+            <h4>Marital status (0 = single)</h4>
+            <div>
+              <img src="img/marital_status.png" alt="Marital status vs. outcome" />
+            </div>
+          </section>
+          <section>
+            <h4>Marital status (0 = single)</h4>
+            <div>
+              <img src="img/marital_status2.png" alt="Marital status vs. outcome" />
+            </div>
+          </section>
+          <section>
+            <h4>Age at enrollment (17-70)</h4>
+            <div>
+              <img src="img/age.png" alt="Age at enrollment vs. outcome" />
+            </div>
+          </section>
+          <section>
+            <h4>Admission grade (0-200)</h4>
+            <div>
+              <img src="img/admission_grade.png" alt="Admission grade vs. outcome" />
+            </div>
+          </section>
+          <section>
+            <h4>Semester 2 grades (0-20)</h4>
+            <div>
+              <img src="img/sem2_grades.png" alt="Semester 2 grades vs. outcome" />
+            </div>
+          </section>
+          <section>
+            <h4>Gender (0 = female)</h4>
+            <div>
+              <img src="img/gender.png" alt="Gender vs. outcome" />
+            </div>
+          </section>
+          <section>
+            <h4>Gender vs. course selection</h4>
+            <div>
+              <img src="img/courses_vs_gender.png" alt="Gender vs. course selection vs. outcome" />
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <h3>Experiments</h3>
+          <ul>
+            <li>
+              Feature transformations:
+              <ul>
+                <li>numerical features were standardized,</li>
+                <li>categorical features → binary features.</li>
+              </ul>
+            </li>
+            <li>
+              Hyperparameter optimization.
+              <small>
+                (11 neighbors, 7-10 level deep trees,
+                AdaBoost with decision tree,
+                Stacked model with logistic regression as the final classifier.)
+              </small>
+            </li>
+            <li>5-fold CV, with and without stratification.</li>
+            <li>Decision function tuning.</li>
+          </ul>
+        </section>
+
+        <section>
+          <section>
+            <h3>Best results <small>(min, mean, max)</small></h3>
+            <h4>All features</h4>
+            <ol>
+              <li>
+                <strong>Stacked</strong> on "<em>did not graduate in time</em>":
+                <ul>
+                  <li>F1: 0.836, 0.854, 0.866.</li>
+                  <li><small>Precision: 0.84, 0.865, 0.896, Recall: 0.804, 0.844, 0.869.</small></li>
+                </ul>
+              </li>
+              <li>
+                <strong>Logistic regression</strong> on "<em>did not graduate in time</em>":
+                <ul>
+                  <li>F1: 0.819, 0.852, 0.88.</li>
+                  <li><small>Precision: 0.862, 0.883, 0.909, Recall: 0.772, 0.825, 0.867.</small></li>
+                </ul>
+              </li>
+              <li>
+                <strong>SVM</strong> on "<em>did not graduate in time</em>":
+                <ul>
+                  <li>F1: 0.834, 0.848, 0.868.</li>
+                  <li><small>Precision: 0.821, 0.84, 0.871, Recall: 0.828, 0.856, 0.896.</small></li>
+                </ul>
+              </li>
+            </ol>
+          </section>
+          <section>
+            <h4>Early features</h4>
+            <ol>
+              <li>
+                <strong>SVM</strong> on "<em>did not graduate in time</em>":
+                <ul>
+                  <li>F1: 0.74, 0.746, 0.754.</li>
+                  <li><small>Precision: 0.667, 0.679, 0.693, Recall: 0.806, 0.827, 0.851.</small></li>
+                </ul>
+              </li>
+              <li>
+                <strong>Stacked</strong> on "<em>did not graduate in time</em>":
+                <ul>
+                  <li>F1: 0.732, 0.743, 0.756.</li>
+                  <li><small>Precision: 0.651, 0.679, 0.709, Recall: 0.761, 0.822, 0.849.</small></li>
+                </ul>
+              </li>
+              <li>
+                <strong>Random forest</strong> on "<em>did not graduate in time</em>":
+                <ul>
+                  <li>F1: 0.718, 0.74, 0.754.</li>
+                  <li><small>Precision: 0.632, 0.661, 0.684, Recall: 0.83, 0.841, 0.865.</small></li>
+                </ul>
+              </li>
+            </ol>
+          </section>
+          <section>
+            <h4>Observations</h4>
+            <ul>
+              <li>Stratification had no noticeable effect.</li>
+              <li>
+                First two semester data is essential.
+                <ul>
+                  <li>Models also used tuition fee timeliness and course selection (among others).</li>
+                  <li>Note: university students have already passed admission requirements.</li>
+                </ul>
+              </li>
+              <li>Threshold tuning was prone to overfitting.</li>
+              <li>No noticeable pattern in misclassified data.</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h3>Further questions</h3>
+            <ul>
+              <li>
+                When to convert 3 classes into 2:
+                <ul>
+                  <li>before training</li>
+                  <li>or after prediction?</li>
+                </ul>
+              </li>
+              <li>Results with dropping only the 2nd semester data?</li>
+              <li>Results with using only the first 1-2 semesters and related data (course, tuition fee timeliness, etc.)?</li>
+              <li>Other models?</li>
+              <li>Score function tuning?</li>
+            </ul>
+          </section>
+          <section>
+            <h4>When to convert 3 classes into 2?</h4>
+            <ul>
+              <li>
+                It depends on the problem:
+                <ul>
+                  <li>
+                    <em>Did not graduate in time</em>: no noticeable effect.
+                    <small>
+                      (As long as the classes are balanced.)
+                    </small>
+                  </li>
+                  <li>
+                    <div>Dropout: performance improvements.</div>
+                    <div>
+                      The Stacked model with the <em>dropout vs. non-dropout</em>
+                      problem came up to 3rd place when run on all features:
+                      <ul>
+                        <li>F1: 0.831, 0.851, 0.863.</li>
+                        <li>Precision: 0.836, 0.86, 0.889.</li>
+                        <li>Recall: 0.827, 0.844, 0.859.</li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <h3>Thank you!</h3>
+        </section>
+
+        <section>
+          <h3>Q &amp; A</h3>
+        </section>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+      });
+    </script>
+  </body>
+</html>
